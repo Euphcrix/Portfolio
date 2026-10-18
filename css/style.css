@@ -1034,3 +1034,93 @@ nav ul li a.active {
     50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
     100% { transform: scale(0.95); opacity: 0.8; }
 }
+
+/* ==========================================
+   ELITE EDITORIAL UPGRADES (Non-AI Look)
+   ========================================== */
+
+/* 1. Transform the rigid About table into a sleek Bento Summary list */
+.about-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: none !important;
+}
+
+.about-table tr {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    border-bottom: 1px solid var(--border-color) !important;
+    transition: border-color 0.2s ease;
+}
+
+.about-table tr:hover {
+    border-color: var(--text-color);
+}
+
+.about-table th {
+    width: 100% !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 0 !important;
+    border: none !important;
+}
+
+.about-table td {
+    width: 100% !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    padding: 0 !important;
+    border: none !important;
+    color: var(--text-color);
+}
+
+/* 2. Elevate the Floating Navigation Pill */
+header {
+    background-color: var(--card-bg) !important;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--border-color);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="dark"] header {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-color);
+}
+
+/* 3. Smooth Interactive Pill Hover for Nav */
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a:hover {
+    background-color: var(--bg-secondary);
+    opacity: 1;
+}
+
+/* 4. Project Card Coming Soon Banner Polish */
+.project-coming-soon {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--card-bg));
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 5. Custom Scrollbar for Elite Feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
