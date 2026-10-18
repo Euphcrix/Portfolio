@@ -6,21 +6,34 @@
     <title>Domnic Llanos | Virtual Assistant & IT Professional</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/style.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        primary: {
-                            500: '#10b981',
-                            600: '#059669',
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
             }
         }
     </script>
+    <!-- Custom Animation & Styling Additions -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -29,59 +42,61 @@
        })();
     </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950">
+<body class="bg-black text-neutral-200 font-sans antialiased selection:bg-white selection:text-black">
 
     <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-neutral-900">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#home" class="text-xl font-bold tracking-wider text-white">
-                DOMNIC<span class="text-emerald-500">.</span>
+            <a href="#home" class="text-xl font-black tracking-widest text-white">
+                DOMNIC<span class="text-neutral-500">.</span>
             </a>
             
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#home" class="hover:text-emerald-400 transition-colors">Home</a>
-                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
-                <a href="#experience" class="hover:text-emerald-400 transition-colors">Experience</a>
-                <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-400">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
             </nav>
 
-            <a href="#contact" class="hidden sm:inline-flex px-4 py-2 text-sm font-medium rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-semibold shadow-lg shadow-emerald-600/20 transition-all">
+            <a href="#contact" class="hidden sm:inline-flex px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-full bg-white hover:bg-neutral-200 text-black transition-all shadow-lg shadow-white/10">
                 Let's Talk
             </a>
         </div>
     </header>
 
-    <main class="pt-28 space-y-24 pb-16">
+    <main class="pt-28 space-y-32 pb-20">
 
         <!-- HERO SECTION -->
-        <section id="home" class="max-w-6xl mx-auto px-6 pt-8">
-            <div class="flex flex-col md:flex-row items-center gap-12 bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800 shadow-2xl">
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl blur opacity-40 group-hover:opacity-75 transition duration-300"></div>
-                    <img src="assets/images/profile.jpg" alt="Domnic Llanos" class="relative w-40 h-40 md:w-48 md:h-48 rounded-3xl object-cover border border-slate-700 shadow-2xl">
-                    <span class="absolute -bottom-2 -right-2 px-3 py-1 bg-emerald-500 text-slate-950 text-xs font-bold rounded-full shadow-lg border border-slate-900">Available</span>
-                </div>
-
-                <div class="text-center md:text-left space-y-4 flex-1">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-                        <span>✦</span> Virtual Assistant & BSIT Student
+        <section id="home" class="max-w-6xl mx-auto px-6 pt-12 animate-fade-in">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="text-center md:text-left space-y-6 flex-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-medium tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Virtual Assistant & BSIT Student
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white">
-                        Domnic Llanos
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white leading-none">
+                        Domnic Llanos<span class="text-neutral-600">.</span>
                     </h1>
-                    <p class="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
-                        Detail-oriented Virtual Assistant and Software Developer blending administrative support, e-commerce order processing, and full-stack technical knowledge.
+                    <p class="text-neutral-400 text-base md:text-lg max-w-xl leading-relaxed">
+                        Precision-driven virtual assistant, e-commerce support specialist, and software developer. Building clean digital solutions and managing administrative operations.
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
-                        <a href="#contact" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold shadow-lg shadow-emerald-600/20 transition-all">
+                        <a href="#contact" class="px-6 py-3.5 rounded-full bg-white hover:bg-neutral-200 text-black font-bold text-sm tracking-wide transition-all shadow-xl shadow-white/5">
                             Get In Touch &rarr;
                         </a>
-                        <a href="assets/docs/resume.pdf" target="_blank" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium transition-all">
+                        <a href="assets/docs/resume.pdf" target="_blank" class="px-6 py-3.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 font-medium text-sm tracking-wide transition-all">
                             View Resume
                         </a>
+                    </div>
+                </div>
+
+                <!-- Animated Floating Image Card -->
+                <div class="relative group animate-float">
+                    <div class="absolute -inset-1 bg-gradient-to-tr from-neutral-700 to-neutral-200 rounded-3xl blur-md opacity-25 group-hover:opacity-50 transition duration-500"></div>
+                    <div class="relative w-52 h-52 md:w-64 md:h-64 rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl">
+                        <img src="assets/images/profile.jpg" alt="Domnic Llanos" class="w-full h-full object-cover grayscale contrast-125 hover:scale-105 transition duration-500">
                     </div>
                 </div>
             </div>
@@ -89,25 +104,26 @@
 
         <!-- ABOUT SECTION -->
         <section id="about" class="max-w-6xl mx-auto px-6">
-            <div class="bg-slate-900/50 p-8 rounded-3xl border border-slate-800 space-y-6">
-                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                    <span class="text-emerald-500">01.</span> About Me
+            <div class="bg-neutral-950 p-8 md:p-12 rounded-3xl border border-neutral-900 space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-neutral-900/40 rounded-full blur-3xl pointer-events-none"></div>
+                <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                    <span class="text-neutral-500 text-sm font-mono">01.</span> About Me
                 </h2>
-                <p class="text-slate-300 leading-relaxed text-sm md:text-base">
-                    Based in Iligan City, Philippines, I am a 3rd-year BS Information Technology student (irregular status). I bring robust hands-on experience in e-commerce operations—managing multiple Facebook business pages, executing customer outreach and phone follow-ups, processing order fulfillment records, handling Amazon sneaker deliveries, and conducting deep-dive web research. Coupled with my programming background in web development and databases, I offer a unique combination of administrative precision and modern technical skills.
+                <p class="text-neutral-300 leading-relaxed text-base md:text-lg">
+                    Based in Iligan City, Philippines, I am a 3rd-year BS Information Technology student (irregular). I bridge high-volume administrative execution—such as managing 4 Facebook business pages, processing "Minoxipro" orders, tracking Amazon sneaker shipments, and conducting web research—with full-stack programming capabilities.
                 </p>
-                <div class="grid sm:grid-cols-3 gap-4 pt-2">
-                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                        <strong class="text-emerald-400 block text-xs uppercase tracking-wider mb-1">Location</strong>
-                        <p class="text-slate-200 text-sm font-medium">Iligan City, PH</p>
+                <div class="grid sm:grid-cols-3 gap-4 pt-4">
+                    <div class="p-5 rounded-2xl bg-black border border-neutral-900">
+                        <span class="text-neutral-500 block text-xs font-mono uppercase tracking-wider mb-1">Location</span>
+                        <p class="text-white font-semibold">Iligan City, PH</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                        <strong class="text-emerald-400 block text-xs uppercase tracking-wider mb-1">Education</strong>
-                        <p class="text-slate-200 text-sm font-medium">BSIT 3rd Year College</p>
+                    <div class="p-5 rounded-2xl bg-black border border-neutral-900">
+                        <span class="text-neutral-500 block text-xs font-mono uppercase tracking-wider mb-1">Education</span>
+                        <p class="text-white font-semibold">BSIT 3rd Year</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                        <strong class="text-emerald-400 block text-xs uppercase tracking-wider mb-1">Expertise</strong>
-                        <p class="text-slate-200 text-sm font-medium">Virtual Assistant & Web Dev</p>
+                    <div class="p-5 rounded-2xl bg-black border border-neutral-900">
+                        <span class="text-neutral-500 block text-xs font-mono uppercase tracking-wider mb-1">Focus</span>
+                        <p class="text-white font-semibold">VA & Web Systems</p>
                     </div>
                 </div>
             </div>
@@ -115,58 +131,58 @@
 
         <!-- EXPERIENCE SECTION -->
         <section id="experience" class="max-w-6xl mx-auto px-6">
-            <div class="space-y-8">
+            <div class="space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                        <span class="text-emerald-500">02.</span> Professional Experience
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="text-neutral-500 text-sm font-mono">02.</span> Professional Experience
                     </h2>
-                    <p class="text-slate-400 text-sm mt-1">Real-world operational support, customer communication, and data management.</p>
+                    <p class="text-neutral-400 text-sm mt-1">Real-world operational support, order fulfillment, and client management.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- E-Commerce & Facebook Pages -->
-                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-4 hover:border-emerald-500/50 transition-colors">
+                    <!-- VA Experience -->
+                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-5 hover:border-neutral-700 transition-all duration-300 group">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-lg font-bold text-white">E-Commerce Virtual Assistant</h3>
-                                <p class="text-emerald-400 text-xs font-semibold uppercase tracking-wider">Facebook Page & Sales Support</p>
+                                <h3 class="text-xl font-bold text-white group-hover:text-neutral-200">E-Commerce Virtual Assistant</h3>
+                                <p class="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-0.5">Facebook Page & Sales Support</p>
                             </div>
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-900 text-slate-300 border border-slate-800">Operational</span>
+                            <span class="px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 text-xs font-mono border border-neutral-800">Active</span>
                         </div>
-                        <ul class="space-y-2 text-sm text-slate-300">
-                            <li>• Managed 4 active Facebook business pages, responding to customer inquiries and processing sales.</li>
-                            <li>• Handled order intake for "Minoxipro" products, recording client names, numbers, and locations into structured Google Docs.</li>
-                            <li>• Conducted outbound customer call follow-ups for active product promotions and order tracking updates.</li>
+                        <ul class="space-y-3 text-sm text-neutral-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Managed 4 active Facebook business pages, responding to customer inquiries and processing sales.</li>
+                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Recorded customer data ("Minoxipro" orders, names, numbers, and delivery locations) accurately into Google Docs.</li>
+                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Executed outbound phone follow-ups for promotions and tracked order fulfillment updates.</li>
                         </ul>
                     </div>
 
-                    <!-- Amazon & Web Research -->
-                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-4 hover:border-emerald-500/50 transition-colors">
+                    <!-- Web Research & Data Entry -->
+                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-5 hover:border-neutral-700 transition-all duration-300 group">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-lg font-bold text-white">Web Researcher & Data Encoder</h3>
-                                <p class="text-emerald-400 text-xs font-semibold uppercase tracking-wider">Remote Support & Tracking</p>
+                                <h3 class="text-xl font-bold text-white group-hover:text-neutral-200">Web Researcher & Data Encoder</h3>
+                                <p class="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-0.5">Remote Support & Tracking</p>
                             </div>
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-900 text-slate-300 border border-slate-800">Detailed</span>
+                            <span class="px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 text-xs font-mono border border-neutral-800">Detailed</span>
                         </div>
-                        <ul class="space-y-2 text-sm text-slate-300">
-                            <li>• Monitored out-of-delivery sneaker shoes on Amazon and organized fulfillment logs using Docs.</li>
-                            <li>• Executed deep-dive web research to find specific residential addresses and encode location datasets.</li>
-                            <li>• Performed general data entry tasks with high accuracy and speed.</li>
+                        <ul class="space-y-3 text-sm text-neutral-300 leading-relaxed">
+                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Monitored out-of-delivery sneaker shoes on Amazon and organized fulfillment logs via Docs.</li>
+                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Conducted deep-dive web research to find specific residential locations and encode data.</li>
+                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Handled general administrative data entry tasks with strict attention to detail.</li>
                         </ul>
                     </div>
 
                     <!-- Call Center Operations -->
-                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-4 hover:border-emerald-500/50 transition-colors md:col-span-2">
+                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-4 hover:border-neutral-700 transition-all duration-300 md:col-span-2 group">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-lg font-bold text-white">Customer Support & Call Center Representative</h3>
-                                <p class="text-emerald-400 text-xs font-semibold uppercase tracking-wider">Client Communications</p>
+                                <h3 class="text-xl font-bold text-white group-hover:text-neutral-200">Customer Support & Call Center Representative</h3>
+                                <p class="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-0.5">Client Communications</p>
                             </div>
-                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-900 text-slate-300 border border-slate-800">Client Handling</span>
+                            <span class="px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 text-xs font-mono border border-neutral-800">Trained</span>
                         </div>
-                        <p class="text-sm text-slate-300 leading-relaxed">
-                            Utilized structured communication scripts to assist clients professionally, resolve customer inquiries, and maintain precise data records during live interactions.
+                        <p class="text-sm text-neutral-300 leading-relaxed max-w-3xl">
+                            Utilized professional communication scripts to assist clients seamlessly, resolve customer inquiries, and maintain accurate real-time records during live interactions.
                         </p>
                     </div>
                 </div>
@@ -175,62 +191,62 @@
 
         <!-- SKILLS SECTION -->
         <section id="skills" class="max-w-6xl mx-auto px-6">
-            <div class="space-y-8">
+            <div class="space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                        <span class="text-emerald-500">03.</span> Technical & Creative Skills
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="text-neutral-500 text-sm font-mono">03.</span> Technical & Creative Arsenal
                     </h2>
-                    <p class="text-slate-400 text-sm mt-1">Programming languages, databases, and design tools.</p>
+                    <p class="text-neutral-400 text-sm mt-1">Programming languages, databases, and design software.</p>
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">HTML / CSS</span>
-                        <p class="text-xs text-slate-400">Frontend</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">HTML / CSS</span>
+                        <p class="text-xs text-neutral-500 font-mono">Frontend</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">JavaScript</span>
-                        <p class="text-xs text-slate-400">Scripting</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">JavaScript</span>
+                        <p class="text-xs text-neutral-500 font-mono">Scripting</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">React</span>
-                        <p class="text-xs text-slate-400">Frontend Library</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">React</span>
+                        <p class="text-xs text-neutral-500 font-mono">UI Library</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">PHP / MySQL</span>
-                        <p class="text-xs text-slate-400">Backend & DB</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">PHP / MySQL</span>
+                        <p class="text-xs text-neutral-500 font-mono">Backend & DB</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">Java / C++</span>
-                        <p class="text-xs text-slate-400">Core Languages</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">Java / C++</span>
+                        <p class="text-xs text-neutral-500 font-mono">Core Languages</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">PostgreSQL</span>
-                        <p class="text-xs text-slate-400">Database</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">PostgreSQL</span>
+                        <p class="text-xs text-neutral-500 font-mono">Relational DB</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">Supabase</span>
-                        <p class="text-xs text-slate-400">Cloud DB</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">Supabase</span>
+                        <p class="text-xs text-neutral-500 font-mono">Cloud Backend</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">Git / GitHub</span>
-                        <p class="text-xs text-slate-400">Version Control</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">Git / GitHub</span>
+                        <p class="text-xs text-neutral-500 font-mono">Version Control</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">Figma / Canva</span>
-                        <p class="text-xs text-slate-400">UI/UX Design</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">Figma / Canva</span>
+                        <p class="text-xs text-neutral-500 font-mono">UI/UX Design</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">Photoshop</span>
-                        <p class="text-xs text-slate-400">Image Editing</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">Photoshop</span>
+                        <p class="text-xs text-neutral-500 font-mono">Graphics</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">XAMPP</span>
-                        <p class="text-xs text-slate-400">Local Environment</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">XAMPP</span>
+                        <p class="text-xs text-neutral-500 font-mono">Local Host</p>
                     </div>
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center space-y-1">
-                        <span class="text-emerald-400 font-bold text-base">Google Workspace</span>
-                        <p class="text-xs text-slate-400">Docs, Sheets, Admin</p>
+                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
+                        <span class="text-white font-bold text-base">Google Workspace</span>
+                        <p class="text-xs text-neutral-500 font-mono">Docs & Admin</p>
                     </div>
                 </div>
             </div>
@@ -238,48 +254,48 @@
 
         <!-- PROJECTS SECTION -->
         <section id="projects" class="max-w-6xl mx-auto px-6">
-            <div class="space-y-8">
+            <div class="space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                        <span class="text-emerald-500">04.</span> Featured Systems & Projects
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="text-neutral-500 text-sm font-mono">04.</span> Featured Systems & Projects
                     </h2>
-                    <p class="text-slate-400 text-sm mt-1">Full-stack software systems currently in development for semester requirements.</p>
+                    <p class="text-neutral-400 text-sm mt-1">Full-stack software systems currently in development for semester requirements.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Semester Project 1</span>
+                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 flex flex-col justify-between hover:border-neutral-700 transition-all duration-300">
+                        <div class="space-y-4">
+                            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider bg-neutral-900 px-3 py-1 rounded-full border border-neutral-800">Semester Project 1</span>
                             <h3 class="text-xl font-bold text-white">Equipment Tracking Web System</h3>
-                            <p class="text-slate-300 text-sm leading-relaxed">
+                            <p class="text-neutral-300 text-sm leading-relaxed">
                                 Custom web-based inventory and asset tracker built with structured relational database logging, administrative reporting, and robust data management.
                             </p>
                         </div>
-                        <div class="pt-6 space-y-4">
+                        <div class="pt-8 space-y-4">
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2.5 py-1 text-xs bg-slate-900 text-slate-300 rounded border border-slate-800">PHP</span>
-                                <span class="px-2.5 py-1 text-xs bg-slate-900 text-slate-300 rounded border border-slate-800">MySQL</span>
-                                <span class="px-2.5 py-1 text-xs bg-slate-900 text-slate-300 rounded border border-slate-800">JavaScript</span>
+                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">PHP</span>
+                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">MySQL</span>
+                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">JavaScript</span>
                             </div>
-                            <span class="text-xs text-emerald-400 font-medium block">Status: Ongoing Development</span>
+                            <span class="text-xs text-neutral-400 font-mono block">Status: Ongoing Development</span>
                         </div>
                     </div>
 
-                    <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Semester Project 2</span>
+                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 flex flex-col justify-between hover:border-neutral-700 transition-all duration-300">
+                        <div class="space-y-4">
+                            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider bg-neutral-900 px-3 py-1 rounded-full border border-neutral-800">Semester Project 2</span>
                             <h3 class="text-xl font-bold text-white">Document Request Tracking System</h3>
-                            <p class="text-slate-300 text-sm leading-relaxed">
+                            <p class="text-neutral-300 text-sm leading-relaxed">
                                 Streamlined document verification and administrative update platform designed to track record requests efficiently.
                             </p>
                         </div>
-                        <div class="pt-6 space-y-4">
+                        <div class="pt-8 space-y-4">
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2.5 py-1 text-xs bg-slate-900 text-slate-300 rounded border border-slate-800">HTML/CSS</span>
-                                <span class="px-2.5 py-1 text-xs bg-slate-900 text-slate-300 rounded border border-slate-800">PHP</span>
-                                <span class="px-2.5 py-1 text-xs bg-slate-900 text-slate-300 rounded border border-slate-800">MySQL</span>
+                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">HTML/CSS</span>
+                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">PHP</span>
+                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">MySQL</span>
                             </div>
-                            <span class="text-xs text-emerald-400 font-medium block">Status: Ongoing Development</span>
+                            <span class="text-xs text-neutral-400 font-mono block">Status: Ongoing Development</span>
                         </div>
                     </div>
                 </div>
@@ -288,60 +304,60 @@
 
         <!-- CONTACT SECTION -->
         <section id="contact" class="max-w-6xl mx-auto px-6 pb-12">
-            <div class="space-y-8">
+            <div class="space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                        <span class="text-emerald-500">05.</span> Get In Touch
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <span class="text-neutral-500 text-sm font-mono">05.</span> Get In Touch
                     </h2>
-                    <p class="text-slate-400 text-sm mt-1">Let's connect for remote support contracts or web development opportunities.</p>
+                    <p class="text-neutral-400 text-sm mt-1">Let's connect for remote support contracts or web development opportunities.</p>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-8">
-                    <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 space-y-6">
+                    <div class="bg-neutral-950 p-8 md:p-10 rounded-3xl border border-neutral-900 space-y-6">
                         <h3 class="text-xl font-bold text-white">Contact Information</h3>
-                        <p class="text-slate-300 text-sm">Open for remote contracts in Virtual Assistance, Data Encoding, Web Research, or junior web development.</p>
+                        <p class="text-neutral-300 text-sm">Open for remote contracts in Virtual Assistance, Data Encoding, Web Research, or junior web development.</p>
                         
                         <div class="space-y-4 text-sm">
-                            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                                <strong class="text-slate-400 block text-xs uppercase mb-1">Location</strong>
-                                <p class="text-slate-200 font-medium">Suarez, Iligan City, Philippines</p>
+                            <div class="p-4 rounded-2xl bg-black border border-neutral-900">
+                                <strong class="text-neutral-500 block text-xs font-mono uppercase mb-1">Location</strong>
+                                <p class="text-white font-medium">Suarez, Iligan City, Philippines</p>
                             </div>
-                            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                                <strong class="text-slate-400 block text-xs uppercase mb-1">Services</strong>
-                                <p class="text-slate-200 font-medium">Virtual Assistance, Web Research, Data Entry, Web Dev</p>
+                            <div class="p-4 rounded-2xl bg-black border border-neutral-900">
+                                <strong class="text-neutral-500 block text-xs font-mono uppercase mb-1">Services</strong>
+                                <p class="text-white font-medium">Virtual Assistance, Web Research, Data Entry, Web Dev</p>
                             </div>
-                            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-                                <strong class="text-slate-400 block text-xs uppercase mb-1">Availability</strong>
-                                <p class="text-emerald-400 font-medium">Open for Freelance & Remote Support</p>
+                            <div class="p-4 rounded-2xl bg-black border border-neutral-900">
+                                <strong class="text-neutral-500 block text-xs font-mono uppercase mb-1">Availability</strong>
+                                <p class="text-white font-medium">Open for Freelance & Remote Support</p>
                             </div>
                         </div>
                     </div>
 
-                    <form class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 space-y-5" id="contact-form" action="#" method="POST">
+                    <form class="bg-neutral-950 p-8 md:p-10 rounded-3xl border border-neutral-900 space-y-5" id="contact-form" action="#" method="POST">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors">
+                            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors">
                         </div>
 
                         <div>
-                            <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors">
+                            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors">
                         </div>
 
                         <div>
-                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="How can I assist you?" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+                            <label for="message" class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="How can I assist you?" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors"></textarea>
                         </div>
 
-                        <button type="submit" id="submit-btn" class="w-full py-3.5 px-6 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold shadow-lg shadow-emerald-600/20 transition-all">Send Message &rarr;</button>
+                        <button type="submit" id="submit-btn" class="w-full py-4 px-6 rounded-xl bg-white hover:bg-neutral-200 text-black font-bold text-sm tracking-wide transition-all shadow-xl shadow-white/5">Send Message &rarr;</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-slate-900 py-8 text-center text-sm text-slate-500">
-        © Domnic Llanos. Built with Tailwind CSS.
+    <footer class="border-t border-neutral-900 py-8 text-center text-xs font-mono text-neutral-500">
+        © Domnic Llanos. Built with Tailwind CSS & Minimalist Dark Aesthetics.
     </footer>
 
     <script src="js/script.js" defer></script>
