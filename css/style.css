@@ -711,3 +711,97 @@ body {
     border-color: rgba(255, 255, 255, 0.4) !important;
     box-shadow: 0 20px 40px rgba(255, 255, 255, 0.03) !important;
 }
+
+/* ==========================================
+   ELITE UX & FLOATING GLASS NAVBAR POLISH
+   ========================================== */
+
+/* Modern Floating Glass Header */
+header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 950px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(15, 15, 15, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Polished Interactive Nav Pills */
+nav ul li a {
+    border-bottom: none !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    transition: all 0.25s ease !important;
+}
+
+nav ul li a:hover {
+    background-color: var(--badge-bg);
+}
+
+nav ul li a.active {
+    background-color: var(--text-color) !important;
+    color: var(--bg-primary) !important;
+    border-bottom: none !important;
+}
+
+[data-theme="dark"] nav ul li a.active {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Smooth Entrance Choreography */
+.portfolio-section {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: portfolioFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes portfolioFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#home { animation-delay: 0.1s; }
+#about { animation-delay: 0.2s; }
+#projects { animation-delay: 0.3s; }
+#experience { animation-delay: 0.4s; }
+#contact { animation-delay: 0.5s; }
+
+/* Enhanced Card Hover Elevation & Physics */
+.hero-card, .about-card, .project-card, .timeline-item, .contact-container {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.hero-card:hover, .about-card:hover, .project-card:hover, .timeline-item:hover, .contact-container:hover {
+    transform: translateY(-5px) !important;
+    border-color: var(--text-color) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07) !important;
+}
+
+[data-theme="dark"] .hero-card:hover, 
+[data-theme="dark"] .about-card:hover, 
+[data-theme="dark"] .project-card:hover, 
+[data-theme="dark"] .timeline-item:hover, 
+[data-theme="dark"] .contact-container:hover {
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 0 16px 36px rgba(255, 255, 255, 0.02) !important;
+}
