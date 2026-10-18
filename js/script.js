@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     // ==========================================
     // 1. DARK MODE TOGGLE (With LocalStorage)
     // ==========================================
@@ -24,21 +23,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 2. MULTI-PAGE ACTIVE NAV HIGHLIGHT
+    // 2. ACTIVE SCROLLSPY (Intersection Observer)
     // ==========================================
-    const navLinks = document.querySelectorAll('.nav-menu ul li a');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const sections = document.querySelectorAll('.portfolio-section');
+    const navLinks = document.querySelectorAll('nav ul li a.nav-link');
 
-    navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        // Remove active class from all first
-        link.classList.remove('active');
-        
-        // If current page matches link href, set active
-        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
+    if (sections.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentId = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${currentId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    }
 
     // ==========================================
     // 3. EMAILJS FORM SUBMISSION
@@ -46,19 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
 
-    if (contactForm && submitBtn) {
+    if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
-
+            
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
+            
             emailjs.sendForm('service_4tuua8k', 'template_b4xqoz5', this)
                 .then(() => {
                     submitBtn.textContent = 'Message Sent Successfully!';
                     contactForm.reset();
                     setTimeout(() => {
-                        submitBtn.textContent = 'Send Message →';
+                        submitBtn.textContent = 'Send Message \u2192';
                         submitBtn.disabled = false;
                     }, 4000);
                 }, (error) => {
@@ -68,25 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
-
-    // ==========================================
-    // 4. MOBILE MENU TOGGLE
-    // ==========================================
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (hamburgerBtn && navMenu) {
-        // Toggle menu open/close on click
-        hamburgerBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Automatically close mobile menu when a navigation link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-
 });
+
+
+// Mobile Menu Toggle
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (hamburgerBtn && navMenu) {
+    // Toggle menu open/close on click
+    hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Automatically close mobile menu when a navigation link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+}
