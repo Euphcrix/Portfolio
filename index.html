@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
@@ -24,7 +24,6 @@
             }
         }
     </script>
-    <!-- Custom Animation & Styling Additions -->
     <style>
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
@@ -42,27 +41,37 @@
        })();
     </script>
 </head>
-<body class="bg-black text-neutral-200 font-sans antialiased selection:bg-white selection:text-black">
+<body class="bg-black text-neutral-200 dark:bg-black dark:text-neutral-200 bg-white text-neutral-900 font-sans antialiased transition-colors duration-300">
 
     <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-neutral-900">
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/80 dark:bg-black/80 bg-white/80 backdrop-blur-md border-b border-neutral-900 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#home" class="text-xl font-black tracking-widest text-white">
+            <a href="#home" class="text-xl font-black tracking-widest text-white dark:text-white text-black">
                 DOMNIC<span class="text-neutral-500">.</span>
             </a>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-400">
-                <a href="#home" class="hover:text-white transition-colors">Home</a>
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                <a href="#home" class="hover:text-white dark:hover:text-white hover:text-black transition-colors">Home</a>
+                <a href="#about" class="hover:text-white dark:hover:text-white hover:text-black transition-colors">About</a>
+                <a href="#experience" class="hover:text-white dark:hover:text-white hover:text-black transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-white dark:hover:text-white hover:text-black transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-white dark:hover:text-white hover:text-black transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white dark:hover:text-white hover:text-black transition-colors">Contact</a>
             </nav>
 
-            <a href="#contact" class="hidden sm:inline-flex px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-full bg-white hover:bg-neutral-200 text-black transition-all shadow-lg shadow-white/10">
-                Let's Talk
-            </a>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2.5 rounded-full border border-neutral-800 bg-neutral-900 text-neutral-300 hover:text-white transition-all shadow-md" title="Toggle Black/White Mode">
+                    <!-- Sun / Moon Icon -->
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+
+                <a href="#contact" class="hidden sm:inline-flex px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-full bg-white text-black hover:bg-neutral-200 transition-all shadow-lg">
+                    Let's Talk
+                </a>
+            </div>
         </div>
     </header>
 
@@ -75,7 +84,7 @@
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-medium tracking-wide">
                         <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Virtual Assistant & BSIT Student
                     </div>
-                    <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white leading-none">
+                    <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white dark:text-white text-black leading-none">
                         Domnic Llanos<span class="text-neutral-600">.</span>
                     </h1>
                     <p class="text-neutral-400 text-base md:text-lg max-w-xl leading-relaxed">
@@ -83,10 +92,10 @@
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
-                        <a href="#contact" class="px-6 py-3.5 rounded-full bg-white hover:bg-neutral-200 text-black font-bold text-sm tracking-wide transition-all shadow-xl shadow-white/5">
+                        <a href="#contact" class="px-6 py-3.5 rounded-full bg-white text-black hover:bg-neutral-200 font-bold text-sm tracking-wide transition-all shadow-xl">
                             Get In Touch &rarr;
                         </a>
-                        <a href="assets/docs/resume.pdf" target="_blank" class="px-6 py-3.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 font-medium text-sm tracking-wide transition-all">
+                        <a href="assets/docs/resume.pdf" target="_blank" class="px-6 py-3.5 rounded-full bg-neutral-900 text-neutral-300 border border-neutral-800 hover:bg-neutral-800 font-medium text-sm tracking-wide transition-all">
                             View Resume
                         </a>
                     </div>
@@ -104,8 +113,7 @@
 
         <!-- ABOUT SECTION -->
         <section id="about" class="max-w-6xl mx-auto px-6">
-            <div class="bg-neutral-950 p-8 md:p-12 rounded-3xl border border-neutral-900 space-y-6 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-neutral-900/40 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="bg-neutral-950 p-8 md:p-12 rounded-3xl border border-neutral-900 space-y-6 relative overflow-hidden shadow-xl">
                 <h2 class="text-2xl font-bold text-white flex items-center gap-3">
                     <span class="text-neutral-500 text-sm font-mono">01.</span> About Me
                 </h2>
@@ -140,27 +148,25 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- VA Experience -->
-                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-5 hover:border-neutral-700 transition-all duration-300 group">
+                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-5 hover:border-neutral-700 transition-all group">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-xl font-bold text-white group-hover:text-neutral-200">E-Commerce Virtual Assistant</h3>
+                                <h3 class="text-xl font-bold text-white">E-Commerce Virtual Assistant</h3>
                                 <p class="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-0.5">Facebook Page & Sales Support</p>
                             </div>
                             <span class="px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 text-xs font-mono border border-neutral-800">Active</span>
                         </div>
                         <ul class="space-y-3 text-sm text-neutral-300 leading-relaxed">
                             <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Managed 4 active Facebook business pages, responding to customer inquiries and processing sales.</li>
-                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Recorded customer data ("Minoxipro" orders, names, numbers, and delivery locations) accurately into Google Docs.</li>
+                            <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Recorded customer data ("Minoxipro" orders, names, numbers, and delivery locations) into Google Docs.</li>
                             <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Executed outbound phone follow-ups for promotions and tracked order fulfillment updates.</li>
                         </ul>
                     </div>
 
-                    <!-- Web Research & Data Entry -->
-                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-5 hover:border-neutral-700 transition-all duration-300 group">
+                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-5 hover:border-neutral-700 transition-all group">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-xl font-bold text-white group-hover:text-neutral-200">Web Researcher & Data Encoder</h3>
+                                <h3 class="text-xl font-bold text-white">Web Researcher & Data Encoder</h3>
                                 <p class="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-0.5">Remote Support & Tracking</p>
                             </div>
                             <span class="px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 text-xs font-mono border border-neutral-800">Detailed</span>
@@ -170,20 +176,6 @@
                             <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Conducted deep-dive web research to find specific residential locations and encode data.</li>
                             <li class="flex items-start gap-2"><span class="text-neutral-500">•</span> Handled general administrative data entry tasks with strict attention to detail.</li>
                         </ul>
-                    </div>
-
-                    <!-- Call Center Operations -->
-                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 space-y-4 hover:border-neutral-700 transition-all duration-300 md:col-span-2 group">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xl font-bold text-white group-hover:text-neutral-200">Customer Support & Call Center Representative</h3>
-                                <p class="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-0.5">Client Communications</p>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-neutral-900 text-neutral-400 text-xs font-mono border border-neutral-800">Trained</span>
-                        </div>
-                        <p class="text-sm text-neutral-300 leading-relaxed max-w-3xl">
-                            Utilized professional communication scripts to assist clients seamlessly, resolve customer inquiries, and maintain accurate real-time records during live interactions.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -216,88 +208,6 @@
                         <span class="text-white font-bold text-base">PHP / MySQL</span>
                         <p class="text-xs text-neutral-500 font-mono">Backend & DB</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">Java / C++</span>
-                        <p class="text-xs text-neutral-500 font-mono">Core Languages</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">PostgreSQL</span>
-                        <p class="text-xs text-neutral-500 font-mono">Relational DB</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">Supabase</span>
-                        <p class="text-xs text-neutral-500 font-mono">Cloud Backend</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">Git / GitHub</span>
-                        <p class="text-xs text-neutral-500 font-mono">Version Control</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">Figma / Canva</span>
-                        <p class="text-xs text-neutral-500 font-mono">UI/UX Design</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">Photoshop</span>
-                        <p class="text-xs text-neutral-500 font-mono">Graphics</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">XAMPP</span>
-                        <p class="text-xs text-neutral-500 font-mono">Local Host</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-neutral-950 border border-neutral-900 text-center space-y-1 hover:border-neutral-700 transition-all">
-                        <span class="text-white font-bold text-base">Google Workspace</span>
-                        <p class="text-xs text-neutral-500 font-mono">Docs & Admin</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="max-w-6xl mx-auto px-6">
-            <div class="space-y-10">
-                <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-                        <span class="text-neutral-500 text-sm font-mono">04.</span> Featured Systems & Projects
-                    </h2>
-                    <p class="text-neutral-400 text-sm mt-1">Full-stack software systems currently in development for semester requirements.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 flex flex-col justify-between hover:border-neutral-700 transition-all duration-300">
-                        <div class="space-y-4">
-                            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider bg-neutral-900 px-3 py-1 rounded-full border border-neutral-800">Semester Project 1</span>
-                            <h3 class="text-xl font-bold text-white">Equipment Tracking Web System</h3>
-                            <p class="text-neutral-300 text-sm leading-relaxed">
-                                Custom web-based inventory and asset tracker built with structured relational database logging, administrative reporting, and robust data management.
-                            </p>
-                        </div>
-                        <div class="pt-8 space-y-4">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">PHP</span>
-                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">MySQL</span>
-                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">JavaScript</span>
-                            </div>
-                            <span class="text-xs text-neutral-400 font-mono block">Status: Ongoing Development</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-neutral-950 p-8 rounded-3xl border border-neutral-900 flex flex-col justify-between hover:border-neutral-700 transition-all duration-300">
-                        <div class="space-y-4">
-                            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider bg-neutral-900 px-3 py-1 rounded-full border border-neutral-800">Semester Project 2</span>
-                            <h3 class="text-xl font-bold text-white">Document Request Tracking System</h3>
-                            <p class="text-neutral-300 text-sm leading-relaxed">
-                                Streamlined document verification and administrative update platform designed to track record requests efficiently.
-                            </p>
-                        </div>
-                        <div class="pt-8 space-y-4">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">HTML/CSS</span>
-                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">PHP</span>
-                                <span class="px-3 py-1 text-xs font-mono bg-neutral-900 text-neutral-300 rounded-lg border border-neutral-800">MySQL</span>
-                            </div>
-                            <span class="text-xs text-neutral-400 font-mono block">Status: Ongoing Development</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -307,7 +217,7 @@
             <div class="space-y-10">
                 <div>
                     <h2 class="text-2xl font-bold text-white flex items-center gap-3">
-                        <span class="text-neutral-500 text-sm font-mono">05.</span> Get In Touch
+                        <span class="text-neutral-500 text-sm font-mono">04.</span> Get In Touch
                     </h2>
                     <p class="text-neutral-400 text-sm mt-1">Let's connect for remote support contracts or web development opportunities.</p>
                 </div>
@@ -316,40 +226,18 @@
                     <div class="bg-neutral-950 p-8 md:p-10 rounded-3xl border border-neutral-900 space-y-6">
                         <h3 class="text-xl font-bold text-white">Contact Information</h3>
                         <p class="text-neutral-300 text-sm">Open for remote contracts in Virtual Assistance, Data Encoding, Web Research, or junior web development.</p>
-                        
-                        <div class="space-y-4 text-sm">
-                            <div class="p-4 rounded-2xl bg-black border border-neutral-900">
-                                <strong class="text-neutral-500 block text-xs font-mono uppercase mb-1">Location</strong>
-                                <p class="text-white font-medium">Suarez, Iligan City, Philippines</p>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-black border border-neutral-900">
-                                <strong class="text-neutral-500 block text-xs font-mono uppercase mb-1">Services</strong>
-                                <p class="text-white font-medium">Virtual Assistance, Web Research, Data Entry, Web Dev</p>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-black border border-neutral-900">
-                                <strong class="text-neutral-500 block text-xs font-mono uppercase mb-1">Availability</strong>
-                                <p class="text-white font-medium">Open for Freelance & Remote Support</p>
-                            </div>
-                        </div>
                     </div>
 
-                    <form class="bg-neutral-950 p-8 md:p-10 rounded-3xl border border-neutral-900 space-y-5" id="contact-form" action="#" method="POST">
+                    <form class="bg-neutral-950 p-8 md:p-10 rounded-3xl border border-neutral-900 space-y-5" id="contact-form">
                         <div>
-                            <label for="name" class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors">
+                            <label class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Your Name</label>
+                            <input type="text" placeholder="John Doe" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors">
                         </div>
-
                         <div>
-                            <label for="email" class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors">
+                            <label class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Your Email</label>
+                            <input type="email" placeholder="john@example.com" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors">
                         </div>
-
-                        <div>
-                            <label for="message" class="block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="How can I assist you?" required class="w-full px-4 py-3.5 rounded-xl bg-black border border-neutral-900 text-white focus:outline-none focus:border-white transition-colors"></textarea>
-                        </div>
-
-                        <button type="submit" id="submit-btn" class="w-full py-4 px-6 rounded-xl bg-white hover:bg-neutral-200 text-black font-bold text-sm tracking-wide transition-all shadow-xl shadow-white/5">Send Message &rarr;</button>
+                        <button type="submit" class="w-full py-4 px-6 rounded-xl bg-white text-black hover:bg-neutral-200 font-bold text-sm tracking-wide transition-all shadow-xl">Send Message &rarr;</button>
                     </form>
                 </div>
             </div>
@@ -357,9 +245,23 @@
     </main>
 
     <footer class="border-t border-neutral-900 py-8 text-center text-xs font-mono text-neutral-500">
-        © Domnic Llanos. Built with Tailwind CSS & Minimalist Dark Aesthetics.
+        © Domnic Llanos. Built with Tailwind CSS.
     </footer>
 
-    <script src="js/script.js" defer></script>
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
 </html>
