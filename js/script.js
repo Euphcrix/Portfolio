@@ -116,3 +116,17 @@ document.addEventListener('DOMContentLoaded', () => {
             section.classList.add('visible');
         }
     });
+
+    // 6. ELITE CARD SPOTLIGHT MOUSE EFFECT
+    const cards = document.querySelectorAll('.about-card, .project-card, .timeline-item');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
