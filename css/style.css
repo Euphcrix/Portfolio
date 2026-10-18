@@ -1124,3 +1124,67 @@ nav ul li a:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-muted);
 }
+
+/* ==========================================
+   17. ULTRA-POLISHED TYPOGRAPHY & UX ENHANCEMENTS
+   ========================================== */
+
+/* Crisp Subpixel Font Rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Stunning Editorial Gradient Text for Headings */
+.section-title h2, .section-header h2, .name-row h1 {
+    background: linear-gradient(135deg, var(--text-color) 30%, var(--text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Staggered Floating Entrance Animation for Sections */
+.portfolio-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: eliteFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes eliteFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Perfectly aligned section delays */
+#home { animation-delay: 0.1s; }
+#about { animation-delay: 0.2s; }
+#projects { animation-delay: 0.3s; }
+#experience { animation-delay: 0.4s; }
+#contact { animation-delay: 0.5s; }
+
+/* Enhanced Card Micro-Interactions */
+.hero-card, .about-card, .project-card, .timeline-item, .contact-container {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.hero-card:hover, .about-card:hover, .project-card:hover, .timeline-item:hover, .contact-container:hover {
+    transform: translateY(-5px);
+    border-color: var(--text-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .hero-card:hover, 
+[data-theme="dark"] .about-card:hover, 
+[data-theme="dark"] .project-card:hover, 
+[data-theme="dark"] .timeline-item:hover, 
+[data-theme="dark"] .contact-container:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.02);
+}
+
+/* Fluid Responsive Spacing & Text Alignment */
+.hero-bio, .about-card p, .project-description, .timeline-details {
+    letter-spacing: -0.01em;
+}
