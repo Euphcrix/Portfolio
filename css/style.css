@@ -651,3 +651,16 @@ nav ul li a.active {
         margin-left: 0;
     }
 }
+/* ==========================================
+   10. FORCE SCROLLING FIX FOR MULTI-PAGE
+   ========================================== */
+html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+main {
+    overflow: visible !important;
+    height: auto !important;
+}
