@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Domnic Llanos</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
+    <header>
         <div class="logo">
-            <a href="/index.html">Dom<span class="logo-dot">.</span></a>
+            <a href="index.html">Dom<span class="logo-dot">.</span></a>
         </div>
         
-        <!-- Hamburger Button Added -->
+        <!-- Hamburger Button -->
         <button id="hamburger-btn" class="hamburger" aria-label="Toggle navigation">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
         
-        <!-- Nav Menu Class Added -->
+        <!-- Nav Menu -->
         <nav class="nav-menu">
             <ul>
-                <li><a href="/index.html" class="nav-link">Home</a></li>
-                <li><a href="/about.html" class="nav-link">About</a></li>
-                <li><a href="/projects.html" class="nav-link">Projects</a></li>
-                <li><a href="/experience.html" class="nav-link">Experience</a></li>
-                <li><a href="/contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </nav>
 
-        <!-- Theme Toggle Moved Outside -->
+        <!-- Theme Toggle -->
         <button id="theme-toggle" aria-label="Toggle theme">
             <!-- Sun icon (Visible in Dark Mode) -->
             <svg class="sun-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -43,18 +43,18 @@
     <main>
         <section id="projects" class="portfolio-section">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">A selection of web applications, database systems, and software platforms I've built.</p>
+                <h2 class="section-title">Featured Systems & Projects</h2>
+                <p class="section-subtitle">Full-stack software systems currently in development for semester requirements.</p>
             </div>
 
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-content">
-                        <span class="project-category">Puhon na kay way klaro nga System</span>
-                        <h3 class="project-title">Soon</h3>
+                        <span class="project-category">Semester Project 1</span>
+                        <h3 class="project-title">Equipment Tracking System</h3>
                         <p class="project-description">
-                            A comprehensive web-based tracking system for school equipment and assets with real-time logging and reporting.
+                            A custom web-based inventory and asset tracker built with structured relational database logging, administrative reporting, and robust data management.
                         </p>
                         <div class="project-tech">
                             <span class="tech-badge">PHP</span>
@@ -63,7 +63,7 @@
                             <span class="tech-badge">JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" target="_blank" class="project-btn">View Code &rarr;</a>
+                            <span class="project-btn" style="opacity: 0.7; cursor: default;">Ongoing Development</span>
                         </div>
                     </div>
                 </div>
@@ -71,18 +71,18 @@
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-content">
-                        <span class="project-category">Puhon na kay way klaro nga System</span>
-                        <h3 class="project-title">Soon</h3>
+                        <span class="project-category">Semester Project 2</span>
+                        <h3 class="project-title">Document Request Tracking System</h3>
                         <p class="project-description">
-                            A streamlined document request and ID tracking platform built to improve administrative workflow and record verification.
+                            A streamlined document verification and administrative update platform designed to track record requests efficiently.
                         </p>
                         <div class="project-tech">
+                            <span class="tech-badge">HTML/CSS</span>
                             <span class="tech-badge">PHP</span>
                             <span class="tech-badge">MySQL</span>
-                            <span class="tech-badge">CSS3</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" target="_blank" class="project-btn">View Code &rarr;</a>
+                            <span class="project-btn" style="opacity: 0.7; cursor: default;">Ongoing Development</span>
                         </div>
                     </div>
                 </div>
@@ -90,6 +90,6 @@
         </section>
     </main>
 
-    <script src="/js/script.js" defer></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
