@@ -93,10 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 5. SECTION FADE-IN SCROLL OBSERVER
+    const sections = document.querySelectorAll('.portfolio-section');
+    
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.05
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -109,4 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => {
         observer.observe(section);
+        // Force trigger immediately if already in view
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+            section.classList.add('visible');
+        }
     });
