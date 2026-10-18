@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ==========================================
     // 1. DARK MODE TOGGLE (With LocalStorage)
-    // ==========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
 
@@ -23,26 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 2. MULTI-PAGE ACTIVE NAV HIGHLIGHT
-    // ==========================================
+    // 2. SINGLE-PAGE SCROLL SPY & NAV HIGHLIGHT
+    const sections = document.querySelectorAll('.portfolio-section');
     const navLinks = document.querySelectorAll('.nav-menu ul li a');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-    navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        // Remove active class from all first
-        link.classList.remove('active');
-        
-        // If current page matches link href, set active
-        if (linkHref === currentPage || (currentPage === '' && linkHref === 'index.html')) {
-            link.classList.add('active');
-        }
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPosition = window.pageYOffset + 200; // Offset for header
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${current}` || (current === '' && href === '#home')) {
+                link.classList.add('active');
+            }
+        });
     });
 
-    // ==========================================
     // 3. EMAILJS FORM SUBMISSION
-    // ==========================================
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
 
@@ -53,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
-            emailjs.sendForm('service_4tuua8k', 'template_b4xqoz5', this)
+            emailjs.sendForm('service_4tuua8k', 'template_b4xqoqz', this)
                 .then(() => {
                     submitBtn.textContent = 'Message Sent Successfully!';
                     contactForm.reset();
@@ -69,14 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
     // 4. MOBILE MENU TOGGLE
-    // ==========================================
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburgerBtn && navMenu) {
-        // Toggle menu open/close on click
         hamburgerBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
