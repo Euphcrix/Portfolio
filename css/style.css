@@ -1136,18 +1136,19 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-/* Stunning Editorial Gradient Text for Headings */
+/* Striking Editorial Gradient Text for Headings */
 .section-title h2, .section-header h2, .name-row h1 {
-    background: linear-gradient(135deg, var(--text-color) 30%, var(--text-muted) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--text-muted) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    letter-spacing: -0.03em !important;
 }
 
-/* Staggered Floating Entrance Animation for Sections */
+/* Smooth Floating Entrance Animation for Sections */
 .portfolio-section {
     opacity: 0;
-    transform: translateY(20px);
-    animation: eliteFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(30px);
+    animation: eliteFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes eliteFadeIn {
@@ -1157,22 +1158,22 @@ body {
     }
 }
 
-/* Perfectly aligned section delays */
+/* Staggered Section Delays */
 #home { animation-delay: 0.1s; }
 #about { animation-delay: 0.2s; }
 #projects { animation-delay: 0.3s; }
 #experience { animation-delay: 0.4s; }
 #contact { animation-delay: 0.5s; }
 
-/* Enhanced Card Micro-Interactions */
+/* Enhanced Card Micro-Interactions & Hover Elevation */
 .hero-card, .about-card, .project-card, .timeline-item, .contact-container {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
 }
 
 .hero-card:hover, .about-card:hover, .project-card:hover, .timeline-item:hover, .contact-container:hover {
-    transform: translateY(-5px);
-    border-color: var(--text-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    transform: translateY(-6px) !important;
+    border-color: var(--text-color) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
 }
 
 [data-theme="dark"] .hero-card:hover, 
@@ -1180,11 +1181,6 @@ body {
 [data-theme="dark"] .project-card:hover, 
 [data-theme="dark"] .timeline-item:hover, 
 [data-theme="dark"] .contact-container:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.02);
-}
-
-/* Fluid Responsive Spacing & Text Alignment */
-.hero-bio, .about-card p, .project-description, .timeline-details {
-    letter-spacing: -0.01em;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.04) !important;
 }
