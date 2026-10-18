@@ -843,3 +843,89 @@ html {
 .avatar-wrapper:hover .avatar-img {
     transform: scale(1.05);
 }
+/* ==========================================
+   14. HIGH-END EDITORIAL & FLOATING NAV UX
+   ========================================== */
+
+/* Modern Floating Glass Header */
+header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(15, 15, 15, 0.75);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Polished Nav Links as Interactive Pills */
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 4px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+    opacity: 0.7;
+    transition: all 0.25s ease;
+    border-bottom: none !important; /* Removes the old hard underline */
+}
+
+nav ul li a:hover {
+    opacity: 1;
+    background-color: var(--badge-bg);
+}
+
+/* Modern Active Pill Highlight */
+nav ul li a.active {
+    opacity: 1 !important;
+    font-weight: 600;
+    background-color: var(--text-color);
+    color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] nav ul li a.active {
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+
+/* Editorial Hero Section Alignment */
+.portfolio-section {
+    padding-top: 160px; /* Extra space for floating header */
+}
+
+.hero-card {
+    max-width: 850px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .hero-card {
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.01);
+}
