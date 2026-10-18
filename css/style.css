@@ -700,6 +700,12 @@ html {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Make sure the Home section is visible immediately on load */
+#home.portfolio-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .portfolio-section.visible {
     opacity: 1;
     transform: translateY(0);
