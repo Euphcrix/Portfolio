@@ -43,8 +43,9 @@ html {
 body {
     min-height: 100vh;
     height: auto;
-    overflow-y: auto;
     overflow-x: hidden;
+    background-color: var(--bg-primary);
+    color: var(--text-color);
 }
 
 /* ==========================================
@@ -149,8 +150,7 @@ nav ul li a.active {
    ========================================== */
 .portfolio-section {
     padding: 140px 10% 60px 10%;
-    min-height: auto;
-    height: auto;
+    min-height: auto; /* Allows pages to grow and scroll normally */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -603,18 +603,15 @@ nav ul li a.active {
         padding: 16px 5%;
     }
 
-    /* 1. Logo stays on the far left */
     .logo {
         order: 1;
     }
 
-    /* 2. Theme toggle moves towards the right */
     #theme-toggle {
         order: 2;
         margin-left: auto; 
     }
 
-    /* 3. Hamburger menu sits right beside the theme toggle on the far right */
     .hamburger {
         display: block;
         order: 3;
