@@ -28,14 +28,14 @@
         </button>
         
         <nav class="nav-menu">
-            <ul>
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
+    <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
 
         <button id="theme-toggle" aria-label="Toggle theme">
             <svg class="sun-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -44,273 +44,462 @@
     </header>
 
     <main>
-        <!-- 1. HOME SECTION -->
-        <section id="home" class="portfolio-section">
-            <div class="hero-card">
-                <div class="hero-header">
-                    <div class="avatar-wrapper">
-                        <img src="assets/images/profile.jpg" alt="Domnic Llanos" class="avatar-img">
-                        <span class="status-badge" title="Available for freelance work"></span>
-                    </div>
-                    <div class="hero-title">
-                        <div class="name-row">
-                            <h1>Domnic Llanos</h1>
-                            <span class="verified-icon">✓</span>
+<!-- 1. HERO / HOME SECTION -->
+        <section id="home" class="portfolio-section hero-section">
+            <div class="hero-card boutique-hero-card">
+                <!-- Top Header: Avatar, Name & Socials -->
+                <div class="hero-top-row">
+                    <div class="hero-profile-group">
+                        <div class="avatar-wrapper">
+                            <img src="assets/images/profile.jpg" alt="Domnic Llanos" class="hero-avatar">
+                            <span class="status-indicator-dot" title="Available for work"></span>
                         </div>
-                        <div class="social-links">
-                            <a href="https://github.com/Euphcrix/Portfolio" target="_blank" aria-label="GitHub">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            </a>
-                            <a href="https://www.facebook.com/Euphcr1qxj" target="_blank" aria-label="Facebook">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.588 9 4.708V8z"/></svg>
-                            </a>
+                        <div class="hero-ident">
+                            <div class="name-row">
+                                <h1 class="hero-title">Domnic Llanos</h1>
+                                <span class="verified-badge" title="Verified Developer">✓</span>
+                            </div>
+                            <p class="hero-location">📍 Iligan City, PH</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-socials">
+                        <a href="https://github.com/Euphcrix" target="_blank" aria-label="GitHub" class="social-icon-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/domnic-llanos-3067883b6/" target="_blank" aria-label="LinkedIn" class="social-icon-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="https://www.facebook.com/Euphcr1qxj" target="_blank" aria-label="Facebook" class="social-icon-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+               <!-- Role & Headline -->
+                <div class="hero-headline-block">
+                    <h2><span id="typed-text"></span><span class="typing-cursor">|</span></h2>
+                </div>
+
+                <!-- Bio Description -->
+                <p class="hero-bio">
+                    Third-year Bachelor of Science in Information Technology student based in Iligan City with extensive practical expertise in managing 4 Facebook business pages, processing digital orders, handling supply chain tracking, conducting web research, UI/UX design, and deploying full-stack web applications on Vercel.
+        </p>
+
+                <!-- Categorized Skills Grid -->
+                <div class="hero-skills-container">
+                    <div class="skill-category-row">
+                        <span class="skill-cat-label">VA & Operations:</span>
+                        <div class="skills-flex">
+                            <span class="skill-tag">Google Workspace</span>
+                            <span class="skill-tag">Facebook Pages</span>
+                            <span class="skill-tag">Web Research</span>
+                            <span class="skill-tag">Data Encoding</span>
+                        </div>
+                    </div>
+                    <div class="skill-category-row">
+                        <span class="skill-cat-label">Design & Deployment:</span>
+                        <div class="skills-flex">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Photoshop</span>
+                        </div>
+                    </div>
+                    <div class="skill-category-row">
+                        <span class="skill-cat-label">Development:</span>
+                        <div class="skills-flex">
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Supabase</span>
                         </div>
                     </div>
                 </div>
-                <h2 class="hero-role">Virtual Assistant & IT Student <span class="divider">—</span> <span class="highlight">E-Commerce Support & Web Research</span></h2>
-                <p class="hero-bio">3rd-year irregular BSIT student at Iligan City with extensive practical background managing 4 Facebook business pages, processing "Minoxipro" orders, tracking Amazon sneaker deliveries, web research, data encoding, and customer call center support.</p>
-                <div class="tech-stack-row">
-                    <span class="tech-badge">Google Workspace</span>
-                    <span class="tech-badge">Facebook Pages</span>
-                    <span class="tech-badge">Web Research</span>
-                    <span class="tech-badge">Data Encoding</span>
-                    <span class="tech-badge">HTML/CSS</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">PHP/MySQL</span>
-                    <span class="tech-badge">PostgreSQL</span>
-                    <span class="tech-badge">Supabase</span>
-                    <span class="tech-badge">Java / C++</span>
-                    <span class="tech-badge">Git/GitHub</span>
-                    <span class="tech-badge">Figma / Canva / PS</span>
-                </div>
-                <div class="hero-actions">
-                    <a href="#contact" class="btn-primary">Get In Touch &rarr;</a>
-                    <a href="assets/docs/resume.pdf" target="_blank" class="btn-secondary">View Resume</a>
+
+                <!-- Action Buttons -->
+                <div class="hero-cta-group">
+                    <a href="#contact" class="btn-primary-custom">
+                        Get In Touch 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                    <a href="assets/docs/resume.pdf" target="_blank" class="btn-secondary-custom">View Resume</a>
                 </div>
             </div>
         </section>
 
-        <!-- 2. ABOUT SECTION -->
+<!-- 2. ABOUT SECTION -->
         <section id="about" class="portfolio-section">
-            <div class="section-title">
-                <h2>About Me</h2>
-                <p class="section-subtitle">My academic background in BSIT and professional administrative workflow expertise.</p>
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Bridging practical e-commerce operations, UI/UX design, and modern software engineering.</p>
             </div>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>Background & Education</h3>
-                    <p>Based in Iligan City, Philippines, I am a 3rd-year irregular BS Information Technology student. I combine rigorous hands-on administrative execution—such as managing e-commerce sales, social media pages, and web research—with full-stack programming capabilities and database design.</p>
+
+            <div class="bento-about-grid">
+                <!-- Card 1: Main Story & Background -->
+                <div class="bento-card bento-main">
+                    <div class="bento-card-header">
+                        <span class="bento-tag">Background</span>
+                        <h3>IT Student & Operations VA</h3>
+                    </div>
+                    <p>
+                        I am a 3rd-year irregular BSIT student based in Iligan City, blending rigorous academic foundations in computer science and full-stack development with real-world administrative and e-commerce execution. 
+                    </p>
+                    <p>
+                        Whether I'm designing user interfaces in Figma, managing multi-channel workflows, or deploying applications to Vercel, I focus on precision, efficiency, and clean structure.
+                    </p>
                 </div>
-                <div class="about-card">
-                    <h3>Technical & Administrative Summary</h3>
-                    <table class="about-table">
-                        <tr><th>Education</th><td>BSIT 3rd Year (Irregular) - Iligan City</td></tr>
-                        <tr><th>Admin & VA Skills</th><td>Facebook Page Management, Order Processing, Amazon Delivery Tracking, Web Research, Data Encoding</td></tr>
-                        <tr><th>Tech Stack</th><td>HTML, CSS, JavaScript, React, PHP, MySQL, PostgreSQL, Supabase, Java, C++, Git/GitHub, XAMPP</td></tr>
-                        <tr><th>Design & Tools</th><td>Photoshop, Figma, Canva, Google Workspace</td></tr>
-                    </table>
+
+                <!-- Card 2: E-Commerce & VA Expertise -->
+                <div class="bento-card bento-va">
+                    <div class="bento-card-header">
+                        <span class="bento-tag">Operations</span>
+                        <h3>E-Commerce & Support</h3>
+                    </div>
+                    <ul class="bento-bullet-list">
+                        <li>
+                            <span class="bullet-icon">📦</span>
+                            <div><strong>Order Fulfillment:</strong> Managing "Minoxipro" orders and tracking Amazon sneaker delivery pipelines.</div>
+                        </li>
+                        <li>
+                            <span class="bullet-icon">📱</span>
+                            <div><strong>Social Management:</strong> Active oversight and engagement across 4 Facebook business pages.</div>
+                        </li>
+                        <li>
+                            <span class="bullet-icon">🎨</span>
+                            <div><strong>UI/UX Design:</strong> Crafting visual assets, mockups, and layouts using Figma and Photoshop.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Location / Core Focus -->
+                <div class="bento-card bento-focus">
+                    <div class="bento-card-header">
+                        <span class="bento-tag">Location & Focus</span>
+                        <h3>Based in Iligan City</h3>
+                    </div>
+                    <p>Operating remotely and locally in the Philippines, open to global virtual assistant collaborations, UI/UX design tasks, and full-stack developer opportunities.</p>
+                    <div class="location-badge-pill">
+                        <span>📍 Iligan City, Philippines</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-      <!-- 3. PROJECTS SECTION -->
+<!-- 3. PROJECTS SECTION (Advanced Bento Workspace) -->
         <section id="projects" class="portfolio-section">
             <div class="section-header">
                 <h2 class="section-title">Projects & Systems</h2>
                 <p class="section-subtitle">Upcoming full-stack software applications currently in development.</p>
             </div>
-            <div class="projects-grid">
-                <!-- Project 1: Equipment Tracking System -->
-                <div class="project-card elite-project-card">
-                    <div class="project-preview-window">
-                        <div class="window-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="window-title">equipment-tracker.sys</span>
-                        </div>
-                        <div class="window-body">
-                            <div class="code-line shimmer"></div>
-                            <div class="code-line short shimmer"></div>
-                            <div class="system-status-badge">
-                                <span class="pulse-dot"></span> Database Schema & Logging In Progress
+            
+            <div class="bento-slider-container">
+                <!-- Navigation Control: Left -->
+                <button class="bento-nav-btn bento-prev" id="prevBtn" aria-label="Previous System">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                
+                <div class="bento-viewport">
+                    <div class="bento-track" id="sliderTrack">
+                        <!-- System 1 -->
+                        <div class="bento-slide active" data-index="0">
+                            <div class="bento-workspace-card">
+                                <div class="bento-preview-pane">
+                                    <div class="pane-topbar">
+                                        <div class="pane-dots"><span></span><span></span><span></span></div>
+                                        <div class="ide-tabs">
+                                            <span class="ide-tab active">equipment-tracker.php</span>
+                                        </div>
+                                        <span class="pane-env">PHP 8.2</span>
+                                    </div>
+                                    <div class="pane-code-content">
+                                        <div class="code-line-mock active-line"><span class="keyword">class</span> <span class="class-name">EquipmentManager</span> {</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">private</span> <span class="variable">$db</span>;</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">public function</span> <span class="function">trackAsset</span>(<span class="variable">$id</span>) {</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">$this</span>-><span class="variable">db</span>->query(<span class="string">"SELECT * FROM inventory..."</span>);</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;}</div>
+                                        <div class="code-line-mock">}</div>
+                                        <div class="pane-status-beam">
+                                            <span class="beam-dot"></span> Database Schema & Logging In Progress
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bento-details-pane">
+                                    <span class="bento-category">Planned Full-Stack System</span>
+                                    <h3>Equipment Tracking System</h3>
+                                    <p>Upcoming web-based inventory and asset tracker planned with structured relational database logging and administrative reporting features.</p>
+                                    <div class="bento-tech-list">
+                                        <span class="bento-pill">PHP</span>
+                                        <span class="bento-pill">MySQL</span>
+                                        <span class="bento-pill">JavaScript</span>
+                                    </div>
+                                    <div class="bento-footer">
+                                        <span class="bento-status-badge">⚡ In Active Development</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Planned System</span>
-                        <h3 class="project-title">Equipment Tracking System</h3>
-                        <p class="project-description">Upcoming web-based inventory and asset tracker planned with structured relational database logging and administrative reporting features.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">PHP</span>
-                            <span class="tech-badge">MySQL</span>
-                            <span class="tech-badge">JavaScript</span>
+
+                        <!-- System 2 -->
+                        <div class="bento-slide" data-index="1">
+                            <div class="bento-workspace-card">
+                                <div class="bento-preview-pane">
+                                    <div class="pane-topbar">
+                                        <div class="pane-dots"><span></span><span></span><span></span></div>
+                                        <div class="ide-tabs">
+                                            <span class="ide-tab active">workflow-router.sys</span>
+                                        </div>
+                                        <span class="pane-env">Logic v1.0</span>
+                                    </div>
+                                    <div class="pane-code-content">
+                                        <div class="code-line-mock active-line"><span class="keyword">workflow</span>.<span class="class-name">registerRequest</span>({</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="property">module</span>: <span class="string">"DocumentVerification"</span>,</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="property">status</span>: <span class="string">"Pending Validation"</span>,</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="property">routing</span>: <span class="keyword">true</span></div>
+                                        <div class="code-line-mock">});</div>
+                                        <div class="pane-status-beam">
+                                            <span class="beam-dot"></span> Workflow Routing Architecture
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bento-details-pane">
+                                    <span class="bento-category">Planned Workflow Platform</span>
+                                    <h3>Document Request Tracking System</h3>
+                                    <p>Upcoming administrative workflow platform designed to streamline record verification and request processing.</p>
+                                    <div class="bento-tech-list">
+                                        <span class="bento-pill">HTML/CSS</span>
+                                        <span class="bento-pill">PHP</span>
+                                        <span class="bento-pill">MySQL</span>
+                                    </div>
+                                    <div class="bento-footer">
+                                        <span class="bento-status-badge">⚡ In Active Development</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <span class="project-status-pill">⚡ In Active Development</span>
+
+                        <!-- System 3 -->
+                        <div class="bento-slide" data-index="2">
+                            <div class="bento-workspace-card">
+                                <div class="bento-preview-pane">
+                                    <div class="pane-topbar">
+                                        <div class="pane-dots"><span></span><span></span><span></span></div>
+                                        <div class="ide-tabs">
+                                            <span class="ide-tab active">StorefrontDashboard.tsx</span>
+                                        </div>
+                                        <span class="pane-env">React 18</span>
+                                    </div>
+                                    <div class="pane-code-content">
+                                        <div class="code-line-mock active-line"><span class="keyword">const</span> <span class="class-name">StorefrontHub</span> = () => {</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">const</span> [orders, setOrders] = <span class="function">useSupabase</span>();</div>
+                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">return</span> &lt;<span class="class-name">DashboardGrid</span> data={orders} /&gt;;</div>
+                                        <div class="code-line-mock">};</div>
+                                        <div class="pane-status-beam">
+                                            <span class="beam-dot"></span> API Integration & UI Mockups
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bento-details-pane">
+                                    <span class="bento-category">Planned React Dashboard</span>
+                                    <h3>E-Commerce Storefront Manager</h3>
+                                    <p>Upcoming management dashboard built to track multi-channel customer orders, inventory sync, and fulfillment statuses.</p>
+                                    <div class="bento-tech-list">
+                                        <span class="bento-pill">React</span>
+                                        <span class="bento-pill">JavaScript</span>
+                                        <span class="bento-pill">Supabase</span>
+                                    </div>
+                                    <div class="bento-footer">
+                                        <span class="bento-status-badge">⚡ In Active Development</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: Document Request Tracking System -->
-                <div class="project-card elite-project-card">
-                    <div class="project-preview-window">
-                        <div class="window-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="window-title">doc-request-workflow.sys</span>
-                        </div>
-                        <div class="window-body">
-                            <div class="code-line shimmer"></div>
-                            <div class="code-line short shimmer"></div>
-                            <div class="system-status-badge">
-                                <span class="pulse-dot"></span> Workflow Routing Architecture
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Planned System</span>
-                        <h3 class="project-title">Document Request Tracking System</h3>
-                        <p class="project-description">Upcoming administrative workflow platform designed to streamline record verification and request processing.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">HTML/CSS</span>
-                            <span class="tech-badge">PHP</span>
-                            <span class="tech-badge">MySQL</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-status-pill">⚡ In Active Development</span>
-                        </div>
-                    </div>
-                </div>
+                <!-- Navigation Control: Right -->
+                <button class="bento-nav-btn bento-next" id="nextBtn" aria-label="Next System">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
-                            <!-- Project 2: Document Request Tracking System -->
-                <div class="project-card elite-project-card">
-                    <div class="project-preview-window">
-                        <div class="window-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="window-title">doc-request-workflow.sys</span>
-                        </div>
-                        <div class="window-body">
-                            <div class="code-line shimmer"></div>
-                            <div class="code-line short shimmer"></div>
-                            <div class="system-status-badge">
-                                <span class="pulse-dot"></span> Workflow Routing Architecture
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-category">Planned System</span>
-                        <h3 class="project-title">Document Request Tracking System</h3>
-                        <p class="project-description">Upcoming administrative workflow platform designed to streamline record verification and request processing.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">HTML/CSS</span>
-                            <span class="tech-badge">PHP</span>
-                            <span class="tech-badge">MySQL</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="project-status-pill">⚡ In Active Development</span>
-                        </div>
-                    </div>
-                </div>
+
+            <!-- Bento Pagination Dots -->
+            <div class="slider-dots" id="sliderDots">
+                <span class="slider-dot active" data-index="0"></span>
+                <span class="slider-dot" data-index="1"></span>
+                <span class="slider-dot" data-index="2"></span>
             </div>
         </section>
 
-        <!-- 4. EXPERIENCE SECTION -->
+<!-- 3. EXPERIENCE SECTION -->
         <section id="experience" class="portfolio-section">
-            <div class="section-title">
-                <h2>Work & Administrative Experience</h2>
-                <p class="section-subtitle">A detailed history of my practical background in virtual assistance, e-commerce support, and data encoding.</p>
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Real-world operational expertise in e-commerce, UI/UX design, and full-stack development.</p>
             </div>
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>E-Commerce & Social Media Virtual Assistant</h3>
-                            <span class="company-name">Business Support Operations (Iligan City)</span>
+
+            <div class="experience-timeline-container">
+                <!-- Experience Item 1 -->
+                <div class="experience-card boutique-hero-card">
+                    <div class="hero-top-row">
+                        <div class="hero-profile-group">
+                            <div class="hero-ident">
+                                <div class="name-row">
+                                    <h3 class="hero-title" style="font-size: 1.3rem;">E-Commerce Support & UI/UX Specialist</h3>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="hero-location">Independent / Remote Operations</p>
+                            </div>
                         </div>
-                        <span class="timeline-date">Active Experience</span>
+                        <span class="dev-status-pill">N/A</span>
                     </div>
-                    <ul class="timeline-details">
-                        <li>Managed 4 active Facebook business pages, responding to customer inquiries, messaging clients about products, and closing sales.</li>
-                        <li>Processed customer orders for "Minoxipro"—collecting customer names, contact numbers, and delivery locations, then encoding them accurately into Google Docs.</li>
-                        <li>Conducted outbound customer phone calls and chats regarding active product promotions, special offers, and tracking order delivery status.</li>
-                    </ul>
+
+                    <div class="hero-headline-block">
+                        <span>Virtual Assistant, Operations & Design</span>
+                    </div>
+
+                    <p class="hero-bio">
+                        Extensive practical background providing dedicated virtual assistance, e-commerce support, and visual design asset creation for digital platforms.
+                    </p>
+
+                    <div class="hero-skills-container">
+                        <div class="skill-category-row">
+                            <span class="skill-cat-label">Key Responsibilities:</span>
+                        </div>
+                        <ul class="bento-bullet-list" style="margin-top: 4px;">
+                            <li>
+                                <span class="bullet-icon">🎨</span>
+                                <div><strong>UI/UX & Visual Design:</strong> Designing clean mockups, user flows, and graphics using Figma and Adobe Photoshop.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-icon">📦</span>
+                                <div>Managed 4 active Facebook business pages, processed "Minoxipro" customer orders, and handled fulfillment logs.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-icon">🚚</span>
+                                <div>Tracked Amazon sneaker delivery pipelines to ensure precise logistics and timely status updates.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-icon">🔍</span>
+                                <div>Executed detailed web research, accurate data encoding, and customer call center support.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="hero-skills-container" style="margin-top: 10px;">
+                        <div class="skill-category-row">
+                            <span class="skill-cat-label">Tools & Stack:</span>
+                            <div class="skills-flex">
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">Photoshop</span>
+                                <span class="skill-tag">Google Workspace</span>
+                                <span class="skill-tag">Facebook Pages</span>
+                                <span class="skill-tag">Order Tracking</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>Web Researcher & Data Encoder</h3>
-                            <span class="company-name">Remote Support & Logistics Tracking</span>
+
+                <!-- Experience Item 2 -->
+                <div class="experience-card boutique-hero-card">
+                    <div class="hero-top-row">
+                        <div class="hero-profile-group">
+                            <div class="hero-ident">
+                                <div class="name-row">
+                                    <h3 class="hero-title" style="font-size: 1.3rem;">BSIT Student & Full-Stack Developer</h3>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="hero-location">Iligan City, Philippines</p>
+                            </div>
                         </div>
-                        <span class="timeline-date">Detailed Operations</span>
+                        <span class="dev-status-pill">2rd Year</span>
                     </div>
-                    <ul class="timeline-details">
-                        <li>Monitored out-of-delivery sneaker shipments on Amazon and organized fulfillment logs using Google Docs.</li>
-                        <li>Performed deep-dive web research to find specific residential locations and individuals, encoding their current address details into structured records.</li>
-                        <li>Executed general administrative data entry tasks with strong accuracy and attention to detail.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3>Customer Support & Call Center Representative</h3>
-                            <span class="company-name">Communications Support</span>
+
+                    <div class="hero-headline-block">
+                        <span>Technical Stack & Deployment</span>
+                    </div>
+
+                    <p class="hero-bio">
+                        Pursuing a Bachelor of Science in Information Technology while building practical software applications, relational database architectures, and deploying projects to production.
+                    </p>
+
+                    <div class="hero-skills-container" style="margin-top: 10px;">
+                        <div class="skill-category-row">
+                            <span class="skill-cat-label">Tech Stack:</span>
+                            <div class="skills-flex">
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">PHP</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">Supabase</span>
+                                <span class="skill-tag">Vercel</span>
+                            </div>
                         </div>
-                        <span class="timeline-date">Client Handling</span>
                     </div>
-                    <ul class="timeline-details">
-                        <li>Utilized structured communication scripts to interact with clients smoothly, answer inquiries, and resolve concerns.</li>
-                        <li>Maintained precise real-time logs during live communication sessions and customer support tickets.</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- 5. CONTACT SECTION -->
+        <!-- 4. CONTACT SECTION -->
         <section id="contact" class="portfolio-section">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p class="section-subtitle">Looking for administrative virtual support, web research, or data entry assistance? Send me a message below.</p>
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's collaborate on virtual assistant projects, UI/UX designs, or full-stack web development.</p>
             </div>
+
             <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Reach out directly for freelance contracts in Virtual Assistance, Web Research, Data Encoding, or web development projects.</p>
-                    <div class="contact-method">
-                        <strong>Location</strong>
-                        <p>Suarez, Iligan City, Philippines</p>
+                <div class="contact-card boutique-hero-card">
+                    <div class="hero-top-row">
+                        <div class="hero-profile-group">
+                            <div class="hero-ident">
+                                <div class="name-row">
+                                    <h3 class="hero-title" style="font-size: 1.3rem;">Let's Build Something Together</h3>
+                                    <span class="verified-badge">✓</span>
+                                </div>
+                                <p class="hero-location">Open for Opportunities & Collaborations</p>
+                            </div>
+                        </div>
+                        <span class="dev-status-pill" style="background-color: #10b981; color: #ffffff; border: none;">Available</span>
                     </div>
-                    <div class="contact-method">
-                        <strong>Primary Services</strong>
-                        <p>Virtual Assistance, Web Research, Data Encoding, E-Commerce Support</p>
+
+                    <p class="hero-bio">
+                        Whether you need dedicated e-commerce support, clean UI/UX designs in Figma, or robust full-stack applications built with React and PHP, my inbox is always open.
+                    </p>
+
+                    <!-- Contact Details Grid -->
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <div class="contact-details">
+                                <span class="contact-label">Email Me</span>
+                                <a href="mailto:llanosdomnic1@gmail.com" class="contact-value">llanosdomnic1@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div class="contact-details">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Iligan City, Philippines (Remote-Ready)</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-method">
-                        <strong>Availability</strong>
-                        <p>Open for Freelance Contracts & Remote Support</p>
+
+                    <!-- Direct Social & Action Buttons -->
+                    <div class="hero-cta-group" style="margin-top: 10px;">
+                        <a href="mailto:domnic.llanos@email.com" class="btn-primary-custom">
+                            Send Direct Email
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/domnic-llanos-3067883b6/" target="_blank" class="btn-secondary-custom">Connect on LinkedIn</a>
                     </div>
                 </div>
-                <form class="contact-form" id="contact-form" action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="How can I assist you with your project?" required></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn-primary">Send Message &rarr;</button>
-                </form>
             </div>
         </section>
     </main>
