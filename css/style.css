@@ -12,7 +12,6 @@
     --badge-text: #222222;
 }
 
-
 [data-theme="dark"] {
     --bg-primary: #0a0a0a;
     --bg-secondary: #141414;
@@ -37,6 +36,15 @@
 
 html {
     scroll-behavior: smooth;
+    height: auto;
+    overflow-y: auto;
+}
+
+body {
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* ==========================================
@@ -141,7 +149,8 @@ nav ul li a.active {
    ========================================== */
 .portfolio-section {
     padding: 140px 10% 60px 10%;
-    min-height: 100vh;
+    min-height: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
