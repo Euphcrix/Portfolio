@@ -704,3 +704,138 @@ nav ul li a.active {
     border-color: rgba(255, 255, 255, 0.35) !important;
     box-shadow: 0 16px 36px rgba(255, 255, 255, 0.02) !important;
 }
+
+/* ==========================================
+   ELITE PROJECT PREVIEW WINDOWS & UI POLISH
+   ========================================== */
+
+.elite-project-card {
+    padding: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 16px !important;
+}
+
+/* Simulated App/Dashboard Window Header */
+.project-preview-window {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .window-header {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.window-header .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.window-header .red { background-color: #ff5f56; }
+.window-header .yellow { background-color: #ffbd2e; }
+.window-header .green { background-color: #27c93f; }
+
+.window-title {
+    font-size: 11px;
+    font-family: monospace;
+    color: var(--text-muted);
+    margin-left: 8px;
+    letter-spacing: -0.2px;
+}
+
+/* Window Body with Simulated UI Elements */
+.window-body {
+    padding: 20px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    background: radial-gradient(circle at center, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.code-line {
+    height: 8px;
+    width: 80%;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    opacity: 0.6;
+}
+
+.code-line.short {
+    width: 45%;
+}
+
+/* Glowing Pulsing Status Badge inside Preview */
+.system-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    width: fit-content;
+    margin-top: 4px;
+}
+
+.pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #f59e0b;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(245, 158, 11, 0.4);
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+/* Card Content Spacing */
+.elite-project-card .project-content {
+    padding: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+.project-status-pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: var(--bg-secondary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
