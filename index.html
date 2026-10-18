@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domnic Llanos | Portfolio</title>
+    <title>Domnic Llanos | Virtual Assistant & Data Specialist</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -31,120 +31,106 @@
        })();
     </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen">
 
-    <!-- HEADER / NAVIGATION -->
+    <!-- NAVIGATION HEADER -->
     <header class="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="logo">
-                <a href="#home" class="text-2xl font-bold tracking-tight text-white hover:text-brand-500 transition-colors">
-                    Dom<span class="text-brand-500">.</span>
-                </a>
-            </div>
-
-            <!-- Mobile Hamburger Button -->
-            <button id="hamburger-btn" class="hamburger md:hidden p-2 text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle navigation">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+            <a href="#home" class="text-2xl font-bold tracking-tight text-white hover:text-brand-500 transition-colors">
+                Dom<span class="text-brand-500">.</span>
+            </a>
             
-            <!-- Navigation Links -->
-            <nav class="nav-menu hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <ul class="flex space-x-8">
-                    <li><a href="#home" class="nav-link active hover:text-brand-500 transition-colors">Home</a></li>
-                    <li><a href="#about" class="nav-link hover:text-brand-500 transition-colors">About</a></li>
-                    <li><a href="#projects" class="nav-link hover:text-brand-500 transition-colors">Projects</a></li>
-                    <li><a href="#experience" class="nav-link hover:text-brand-500 transition-colors">Experience</a></li>
-                    <li><a href="#contact" class="nav-link hover:text-brand-500 transition-colors">Contact</a></li>
-                </ul>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#home" class="hover:text-brand-500 transition-colors">Home</a>
+                <a href="#about" class="hover:text-brand-500 transition-colors">About</a>
+                <a href="#projects" class="hover:text-brand-500 transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-brand-500 transition-colors">Experience</a>
+                <a href="#contact" class="hover:text-brand-500 transition-colors">Contact</a>
             </nav>
 
-            <!-- Theme Toggle Button -->
-            <button id="theme-toggle" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors" aria-label="Toggle theme">
-                <svg class="sun-icon hidden dark:block" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                <svg class="moon-icon block dark:hidden" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </button>
+            <a href="#contact" class="hidden sm:inline-flex px-4 py-2 text-sm font-medium rounded-lg bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-500/20 transition-all">
+                Get In Touch
+            </a>
         </div>
     </header>
 
     <main class="pt-24 space-y-28">
 
-        <!-- HOME / HERO SECTION -->
-        <section id="home" class="portfolio-section max-w-6xl mx-auto px-6 pt-12 md:pt-16">
-            <div class="hero-card bg-slate-900/60 p-8 md:p-12 rounded-3xl border border-slate-800 shadow-2xl space-y-8">
-                <div class="hero-header flex flex-col md:flex-row items-center gap-8">
-                    <div class="avatar-wrapper relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-purple-600 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
-                        <img src="assets/images/profile.jpg" alt="Domnic Llanos" class="avatar-img relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-2 border-slate-800 shadow-xl">
-                        <span class="status-badge absolute bottom-2 right-2 w-4 h-4 bg-emerald-500 border-2 border-slate-950 rounded-full" title="Available for freelance work"></span>
+        <!-- HERO SECTION -->
+        <section id="home" class="max-w-6xl mx-auto px-6 pt-12 md:pt-16">
+            <div class="bg-slate-900/60 p-8 md:p-12 rounded-3xl border border-slate-800 shadow-2xl space-y-8">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-purple-600 rounded-full blur opacity-60 group-hover:opacity-90 transition duration-300"></div>
+                        <img src="assets/images/profile.jpg" alt="Domnic Llanos" class="relative w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-2 border-slate-800 shadow-xl">
+                        <span class="absolute bottom-2 right-2 w-4 h-4 bg-emerald-500 border-2 border-slate-950 rounded-full" title="Available for freelance work"></span>
                     </div>
 
-                    <div class="hero-title text-center md:text-left space-y-3 flex-1">
-                        <div class="name-row flex items-center justify-center md:justify-start gap-3">
+                    <div class="text-center md:text-left space-y-3 flex-1">
+                        <div class="flex items-center justify-center md:justify-start gap-2">
                             <h1 class="text-3xl md:text-5xl font-extrabold text-white">Domnic Llanos</h1>
-                            <span class="verified-icon text-brand-500 text-lg font-bold" title="Verified">✓</span>
+                            <span class="text-brand-500 text-lg font-bold" title="Verified">✓</span>
                         </div>
 
                         <!-- Social Links -->
-                        <div class="social-links flex items-center justify-center md:justify-start gap-4 pt-1">
-                            <a href="https://github.com" target="_blank" aria-label="GitHub" class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <div class="flex items-center justify-center md:justify-start gap-3 pt-1">
+                            <a href="https://github.com" target="_blank" aria-label="GitHub" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
+                                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
+                                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                             </a>
-                            <a href="https://www.facebook.com/Euphcr1qxj" target="_blank" aria-label="Facebook" class="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
-                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.588 9 4.708V8z"/></svg>
+                            <a href="https://www.facebook.com/Euphcr1qxj" target="_blank" aria-label="Facebook" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">
+                                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.588 9 4.708V8z"/></svg>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <h2 class="hero-role text-lg md:text-xl font-semibold text-slate-300 border-l-4 border-brand-500 pl-4 py-1">
-                    Virtual Assistant & Data Specialist <span class="divider text-slate-600">—</span> <span class="highlight text-brand-500">Web Research & Administrative Support</span>
+                <h2 class="text-lg md:text-xl font-semibold text-slate-300 border-l-4 border-brand-500 pl-4 py-1">
+                    Virtual Assistant & Data Specialist <span class="text-slate-600">—</span> <span class="text-brand-500">Web Research & Administrative Support</span>
                 </h2>
 
-                <p class="hero-bio text-slate-300 leading-relaxed text-sm md:text-base">
+                <p class="text-slate-300 leading-relaxed text-sm md:text-base">
                     Detail-oriented professional experienced in customer service, web research, data encoding, and virtual assistance. Backed by technical IT expertise to build structured database tools and streamline administrative workflows.
                 </p>
 
-                <!-- Tech Badges -->
-                <div class="tech-stack-row flex flex-wrap gap-2 pt-2">
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Google Workspace</span>
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Data Encoding</span>
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Web Research</span>
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Figma</span>
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">HTML5/CSS3</span>
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">JavaScript</span>
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">PHP/MySQL</span>
-                    <span class="tech-badge px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Java</span>
+                <!-- Skill Badges -->
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Google Workspace</span>
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Data Encoding</span>
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Web Research</span>
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Figma</span>
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">HTML5/CSS3</span>
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">JavaScript</span>
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">PHP/MySQL</span>
+                    <span class="px-3 py-1 text-xs font-medium bg-slate-800/80 text-slate-300 rounded-md border border-slate-700">Java</span>
                 </div>
 
-                <div class="hero-actions flex flex-wrap gap-4 pt-4">
-                    <a href="#contact" class="btn-primary px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium shadow-lg shadow-brand-500/20 transition-all">Get In Touch &rarr;</a>
-                    <a href="assets/docs/resume.pdf" target="_blank" class="btn-secondary px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium transition-all">View Resume</a>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium shadow-lg shadow-brand-500/20 transition-all">Get In Touch &rarr;</a>
+                    <a href="assets/docs/resume.pdf" target="_blank" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium transition-all">View Resume</a>
                 </div>
             </div>
         </section>
 
         <!-- ABOUT SECTION -->
-        <section id="about" class="portfolio-section max-w-6xl mx-auto px-6">
-            <div class="section-title border-b border-slate-800 pb-6 mb-8">
+        <section id="about" class="max-w-6xl mx-auto px-6">
+            <div class="border-b border-slate-800 pb-6 mb-8">
                 <h2 class="text-3xl font-bold text-white mb-2">About Me</h2>
-                <p class="section-subtitle text-slate-400 text-sm">An overview of my administrative skill set, workflow tools, and technical background.</p>
+                <p class="text-slate-400 text-sm">An overview of my administrative skill set, workflow tools, and technical background.</p>
             </div>
 
-            <div class="about-grid grid md:grid-cols-2 gap-8">
-                <div class="about-card bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-4">
                     <h3 class="text-xl font-semibold text-brand-500">Background & Focus</h3>
                     <p class="text-slate-300 leading-relaxed text-sm">I specialize in virtual assistance, data encoding, web research, and professional document presentation using Google Workspace tools. Combined with my BSIT background, I offer strong analytical precision, database organization, and web tech capabilities for administrative projects.</p>
                 </div>
 
-                <div class="about-card bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-4">
+                <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-4">
                     <h3 class="text-xl font-semibold text-brand-500">Technical & Administrative Summary</h3>
                     <div class="overflow-x-auto">
-                        <table class="about-table w-full text-left text-sm text-slate-300">
+                        <table class="w-full text-left text-sm text-slate-300">
                             <tr class="border-b border-slate-800">
                                 <th class="py-3 text-slate-400 font-medium">Roles</th>
                                 <td class="py-3 text-slate-200 font-medium">Virtual Assistant, Data Encoder, Web Researcher</td>
@@ -168,50 +154,50 @@
         </section>
 
         <!-- PROJECTS SECTION -->
-        <section id="projects" class="portfolio-section max-w-6xl mx-auto px-6">
-            <div class="section-header border-b border-slate-800 pb-6 mb-8">
+        <section id="projects" class="max-w-6xl mx-auto px-6">
+            <div class="border-b border-slate-800 pb-6 mb-8">
                 <h2 class="text-3xl font-bold text-white mb-2">Featured IT & System Projects</h2>
-                <p class="section-subtitle text-slate-400 text-sm">Academic and practical technical projects demonstrating my database management and web skills.</p>
+                <p class="text-slate-400 text-sm">Academic and practical technical projects demonstrating my database management and web skills.</p>
             </div>
 
-            <div class="projects-grid grid md:grid-cols-2 gap-8">
-                <div class="project-card bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
-                    <div class="project-content space-y-3">
-                        <span class="project-category text-xs font-semibold text-brand-500 uppercase tracking-wider block">Puhon na nako e Publish</span>
-                        <h3 class="project-title text-2xl font-bold text-white">Soon</h3>
-                        <p class="project-description text-slate-300 text-sm leading-relaxed">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <span class="text-xs font-semibold text-brand-500 uppercase tracking-wider block">School Asset Management</span>
+                        <h3 class="text-2xl font-bold text-white">Equipment Tracking Web System</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
                             A custom web-based tracking system for school equipment and assets built with structured relational database logging and administrative reporting.
                         </p>
                     </div>
                     <div class="pt-6 space-y-4">
-                        <div class="project-tech flex flex-wrap gap-2">
-                            <span class="tech-badge px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">PHP</span>
-                            <span class="tech-badge px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">MySQL</span>
-                            <span class="tech-badge px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">XAMPP</span>
-                            <span class="tech-badge px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">JavaScript</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">PHP</span>
+                            <span class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">MySQL</span>
+                            <span class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">XAMPP</span>
+                            <span class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">JavaScript</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank" class="project-btn inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-400">View System Details &rarr;</a>
+                        <div>
+                            <a href="#" class="inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-400">View System Details &rarr;</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
-                    <div class="project-content space-y-3">
-                        <span class="project-category text-xs font-semibold text-brand-500 uppercase tracking-wider block">Puhon na nako e Publish</span>
-                        <h3 class="project-title text-2xl font-bold text-white">Soon</h3>
-                        <p class="project-description text-slate-300 text-sm leading-relaxed">
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <span class="text-xs font-semibold text-brand-500 uppercase tracking-wider block">Document Management</span>
+                        <h3 class="text-2xl font-bold text-white">Document Request Tracking System</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
                             A document request tracking system designed to simplify document verification, administrative updates, and record management.
                         </p>
                     </div>
                     <div class="pt-6 space-y-4">
-                        <div class="project-tech flex flex-wrap gap-2">
-                            <span class="tech-badge px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">HTML/CSS</span>
-                            <span class="tech-badge px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">PHP</span>
-                            <span class="tech-badge px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">MySQL</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">HTML/CSS</span>
+                            <span class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">PHP</span>
+                            <span class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded border border-slate-700">MySQL</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank" class="project-btn inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-400">View System Details &rarr;</a>
+                        <div>
+                            <a href="#" class="inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-400">View System Details &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -219,37 +205,37 @@
         </section>
 
         <!-- EXPERIENCE SECTION -->
-        <section id="experience" class="portfolio-section max-w-6xl mx-auto px-6">
-            <div class="section-title border-b border-slate-800 pb-6 mb-8">
+        <section id="experience" class="max-w-6xl mx-auto px-6">
+            <div class="border-b border-slate-800 pb-6 mb-8">
                 <h2 class="text-3xl font-bold text-white mb-2">Work & Administrative Experience</h2>
-                <p class="section-subtitle text-slate-400 text-sm">A summary of my hands-on roles in virtual assistance, customer service, and data encoding.</p>
+                <p class="text-slate-400 text-sm">A summary of my hands-on roles in virtual assistance, customer service, and data encoding.</p>
             </div>
 
-            <div class="experience-timeline space-y-6">
-                <div class="timeline-item bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-3">
-                    <div class="timeline-header flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="space-y-6">
+                <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <div>
                             <h3 class="text-xl font-bold text-white">Virtual Assistant & Data Encoder</h3>
-                            <span class="company-name text-sm text-brand-500">Freelance Work</span>
+                            <span class="text-sm text-brand-500">Freelance Work</span>
                         </div>
-                        <span class="timeline-date text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 w-fit">Recent</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 w-fit">Recent</span>
                     </div>
-                    <ul class="timeline-details list-disc list-inside text-sm text-slate-300 space-y-2">
+                    <ul class="list-disc list-inside text-sm text-slate-300 space-y-2">
                         <li>Managed detailed data entry tasks and web research with high accuracy and speed.</li>
                         <li>Created formatted Google Docs, Google Slides presentations, and organized spreadsheet files.</li>
                         <li>Applied system logic and data structuring techniques to streamline administrative digital records.</li>
                     </ul>
                 </div>
 
-                <div class="timeline-item bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-3">
-                    <div class="timeline-header flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <div>
                             <h3 class="text-xl font-bold text-white">Customer Service Representative</h3>
-                            <span class="company-name text-sm text-brand-500">Call Center Operations</span>
+                            <span class="text-sm text-brand-500">Call Center Operations</span>
                         </div>
-                        <span class="timeline-date text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 w-fit">Previous Role</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700 w-fit">Previous Role</span>
                     </div>
-                    <ul class="timeline-details list-disc list-inside text-sm text-slate-300 space-y-2">
+                    <ul class="list-disc list-inside text-sm text-slate-300 space-y-2">
                         <li>Assisted clients with fast, professional communication and quick issue resolution.</li>
                         <li>Maintained high data accuracy during real-time call handling and database updating.</li>
                         <li>Utilized ticketing software and office productivity tools in high-volume environments.</li>
@@ -259,52 +245,52 @@
         </section>
 
         <!-- CONTACT SECTION -->
-        <section id="contact" class="portfolio-section max-w-6xl mx-auto px-6 pb-20">
-            <div class="section-title border-b border-slate-800 pb-6 mb-8">
+        <section id="contact" class="max-w-6xl mx-auto px-6 pb-20">
+            <div class="border-b border-slate-800 pb-6 mb-8">
                 <h2 class="text-3xl font-bold text-white mb-2">Get In Touch</h2>
-                <p class="section-subtitle text-slate-400 text-sm">Looking for administrative virtual support, web research, or data entry assistance? Send me a message below.</p>
+                <p class="text-slate-400 text-sm">Looking for administrative virtual support, web research, or data entry assistance? Send me a message below.</p>
             </div>
 
-            <div class="contact-container grid lg:grid-cols-2 gap-10">
-                <div class="contact-info bg-slate-900/50 p-8 rounded-2xl border border-slate-800 space-y-6">
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800 space-y-6">
                     <h3 class="text-2xl font-bold text-white">Contact Information</h3>
                     <p class="text-slate-300 text-sm">Reach out directly for freelance contracts in Virtual Assistance, Web Research, Data Encoding, or document design projects.</p>
                     
                     <div class="space-y-4 text-sm">
-                        <div class="contact-method p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
                             <strong class="text-slate-400 block text-xs uppercase mb-1">Location</strong>
                             <p class="text-slate-200 font-medium">Suarez, Iligan City, Philippines</p>
                         </div>
 
-                        <div class="contact-method p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
                             <strong class="text-slate-400 block text-xs uppercase mb-1">Primary Services</strong>
                             <p class="text-slate-200 font-medium">Virtual Assistance, Web Research, Data Encoding, Document Creation</p>
                         </div>
 
-                        <div class="contact-method p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
                             <strong class="text-slate-400 block text-xs uppercase mb-1">Availability</strong>
                             <p class="text-emerald-400 font-medium">Open for Freelance Contracts & Remote Support</p>
                         </div>
                     </div>
                 </div>
 
-                <form class="contact-form bg-slate-900 p-8 rounded-2xl border border-slate-800 space-y-5" id="contact-form" action="#" method="POST">
-                    <div class="form-group">
+                <form class="bg-slate-900 p-8 rounded-2xl border border-slate-800 space-y-5" id="contact-form" action="#" method="POST">
+                    <div>
                         <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-brand-500 transition-colors">
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
                         <input type="email" id="email" name="email" placeholder="john@example.com" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-brand-500 transition-colors">
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
                         <textarea id="message" name="message" rows="5" placeholder="How can I assist you with your project?" required class="w-full px-4 py-3 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-brand-500 transition-colors"></textarea>
                     </div>
 
-                    <button type="submit" id="submit-btn" class="btn-primary w-full py-3.5 px-6 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-medium shadow-lg shadow-brand-500/20 transition-all">Send Message &rarr;</button>
+                    <button type="submit" id="submit-btn" class="w-full py-3.5 px-6 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-medium shadow-lg shadow-brand-500/20 transition-all">Send Message &rarr;</button>
                 </form>
             </div>
         </section>
@@ -314,6 +300,5 @@
         © Domnic Llanos. Built with Tailwind CSS.
     </footer>
 
-    <script src="/js/script.js" defer></script>
 </body>
 </html>
