@@ -46,30 +46,38 @@ body {
     overflow-x: hidden;
     background-color: var(--bg-primary);
     color: var(--text-color);
+    padding-top: 100px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================
-   2. HEADER & NAVIGATION
+   2. HEADER & NAVIGATION (Floating Glass Pill)
    ========================================== */
 header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 950px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 10%;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 [data-theme="dark"] header {
-    background-color: rgba(10, 10, 10, 0.8);
+    background-color: rgba(15, 15, 15, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .logo a {
@@ -97,7 +105,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 24px;
+    margin-left: 8px;
 }
 
 nav ul li a {
@@ -105,20 +113,30 @@ nav ul li a {
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 9999px;
     opacity: 0.7;
-    transition: opacity 0.2s ease, border-color 0.2s ease;
+    transition: all 0.25s ease;
+    border-bottom: none !important;
 }
 
 nav ul li a:hover {
     opacity: 1;
+    background-color: var(--badge-bg);
 }
 
-/* Active Highlight */
+/* Active Highlight Pill */
 nav ul li a.active {
     opacity: 1 !important;
     font-weight: 700;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 2px;
+    background-color: var(--text-color) !important;
+    color: var(--bg-primary) !important;
+    border-bottom: none !important;
+}
+
+[data-theme="dark"] nav ul li a.active {
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
 /* Theme Toggle Button Styles */
@@ -136,7 +154,7 @@ nav ul li a.active {
 }
 
 #theme-toggle:hover {
-    background-color: var(--bg-secondary);
+    background-color: var(--badge-bg);
 }
 
 .sun-icon { display: none; }
@@ -149,7 +167,7 @@ nav ul li a.active {
    3. PORTFOLIO SECTIONS & TITLES
    ========================================== */
 .portfolio-section {
-    padding: 140px 10% 60px 10%;
+    padding: 80px 10% 60px 10%;
     min-height: auto;
     display: flex;
     flex-direction: column;
@@ -172,6 +190,7 @@ nav ul li a.active {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: -0.5px;
+    color: var(--text-color);
 }
 
 .section-subtitle {
@@ -181,13 +200,22 @@ nav ul li a.active {
 }
 
 /* ==========================================
-   4. HERO CARD (HOME)
+   4. HERO CARD (HOME) - Elite Polished Layout
    ========================================== */
 .hero-card {
-    max-width: 800px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 850px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .hero-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .hero-header {
@@ -233,6 +261,7 @@ nav ul li a.active {
     font-size: 34px;
     font-weight: 800;
     letter-spacing: -0.5px;
+    color: var(--text-color);
 }
 
 .verified-icon {
@@ -266,7 +295,7 @@ nav ul li a.active {
 }
 
 .hero-role {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: -0.3px;
 }
@@ -295,12 +324,12 @@ nav ul li a.active {
 }
 
 .tech-badge {
-    padding: 4px 10px;
+    padding: 5px 12px;
     font-size: 13px;
     font-weight: 600;
     background-color: var(--badge-bg);
     color: var(--badge-text);
-    border-radius: 4px;
+    border-radius: 6px;
     border: 1px solid var(--border-color);
 }
 
@@ -314,7 +343,7 @@ nav ul li a.active {
     background-color: var(--accent-color);
     color: var(--accent-inverse);
     padding: 12px 24px;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     border: 1px solid var(--accent-color);
@@ -332,7 +361,7 @@ nav ul li a.active {
     color: var(--text-color);
     border: 1px solid var(--border-color);
     padding: 12px 24px;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     transition: transform 0.2s ease, border-color 0.2s ease;
@@ -600,7 +629,8 @@ nav ul li a.active {
         justify-content: space-between;
         align-items: center;
         position: fixed;
-        padding: 16px 5%;
+        padding: 12px 5%;
+        width: 92%;
     }
 
     .logo {
@@ -630,6 +660,7 @@ nav ul li a.active {
         overflow: hidden;
         transition: max-height 0.3s ease-in-out;
         order: 4;
+        border-radius: 12px;
     }
 
     [data-theme="dark"] .nav-menu {
@@ -653,140 +684,8 @@ nav ul li a.active {
 }
 
 /* ==========================================
-   17. ULTRA-POLISHED TYPOGRAPHY & UX ENHANCEMENTS
+   10. ENHANCED CARD HOVER & PHYSICS
    ========================================== */
-
-/* Crisp Subpixel Font Rendering */
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-}
-
-/* Striking Editorial Gradient Text for Headings */
-.section-title h2, .section-header h2, .name-row h1 {
-    background: linear-gradient(135deg, var(--text-color) 0%, var(--text-muted) 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    letter-spacing: -0.03em !important;
-}
-
-/* Smooth Floating Entrance Animation for Sections */
-.portfolio-section {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: eliteFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes eliteFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Staggered Section Delays */
-#home { animation-delay: 0.1s; }
-#about { animation-delay: 0.2s; }
-#projects { animation-delay: 0.3s; }
-#experience { animation-delay: 0.4s; }
-#contact { animation-delay: 0.5s; }
-
-/* Enhanced Card Micro-Interactions & Hover Elevation */
-.hero-card, .about-card, .project-card, .timeline-item, .contact-container {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
-}
-
-.hero-card:hover, .about-card:hover, .project-card:hover, .timeline-item:hover, .contact-container:hover {
-    transform: translateY(-6px) !important;
-    border-color: var(--text-color) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
-}
-
-[data-theme="dark"] .hero-card:hover, 
-[data-theme="dark"] .about-card:hover, 
-[data-theme="dark"] .project-card:hover, 
-[data-theme="dark"] .timeline-item:hover, 
-[data-theme="dark"] .contact-container:hover {
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.03) !important;
-}
-
-/* ==========================================
-   ELITE UX & FLOATING GLASS NAVBAR POLISH
-   ========================================== */
-
-/* Modern Floating Glass Header */
-header {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 950px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 24px;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 9999px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
-}
-
-[data-theme="dark"] header {
-    background-color: rgba(15, 15, 15, 0.8);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Polished Interactive Nav Pills */
-nav ul li a {
-    border-bottom: none !important;
-    padding: 6px 14px !important;
-    border-radius: 9999px !important;
-    transition: all 0.25s ease !important;
-}
-
-nav ul li a:hover {
-    background-color: var(--badge-bg);
-}
-
-nav ul li a.active {
-    background-color: var(--text-color) !important;
-    color: var(--bg-primary) !important;
-    border-bottom: none !important;
-}
-
-[data-theme="dark"] nav ul li a.active {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-/* Smooth Entrance Choreography */
-.portfolio-section {
-    opacity: 0;
-    transform: translateY(24px);
-    animation: portfolioFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes portfolioFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#home { animation-delay: 0.1s; }
-#about { animation-delay: 0.2s; }
-#projects { animation-delay: 0.3s; }
-#experience { animation-delay: 0.4s; }
-#contact { animation-delay: 0.5s; }
-
-/* Enhanced Card Hover Elevation & Physics */
 .hero-card, .about-card, .project-card, .timeline-item, .contact-container {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
 }
