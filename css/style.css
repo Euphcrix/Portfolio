@@ -664,3 +664,43 @@ main {
     overflow: visible !important;
     height: auto !important;
 }
+
+/* ==========================================
+   11. ADVANCED UX & ANIMATION ENHANCEMENTS
+   ========================================== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+/* Card Depth & Smooth Hover Physics */
+.about-card, .project-card, .timeline-item {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.project-card:hover, .about-card:hover, .timeline-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--text-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .project-card:hover, 
+[data-theme="dark"] .about-card:hover, 
+[data-theme="dark"] .timeline-item:hover {
+    border-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.04);
+}
+
+/* Scroll Animation Initial State */
+.portfolio-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.portfolio-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
