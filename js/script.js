@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ------------------------------------------
-       1. DARK MODE TOGGLE (with localStorage)
+       1. DARK MODE TOGGLE (UNIFIED)
        ------------------------------------------ */
     const currentTheme = localStorage.getItem('theme') || 'light';
     if (currentTheme === 'dark') {
@@ -13,9 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.setAttribute('data-theme', 'dark');
     }
 
-    document.addEventListener('click', (e) => {
-        const toggleBtn = e.target.closest('#theme-toggle, .theme-toggle, button:has(svg), button:has(i)');
-        if (toggleBtn && (toggleBtn.id === 'theme-toggle' || toggleBtn.classList.contains('theme-toggle') || toggleBtn.querySelector('svg, i'))) {
+    const themeToggleBtn = document.getElementById('theme-toggle') || document.querySelector('.theme-toggle');
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
             let isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             if (isDark) {
                 document.documentElement.removeAttribute('data-theme');
@@ -26,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
             }
-        }
-    });
+        });
+    }
 
 
     /* ------------------------------------------
@@ -365,3 +368,185 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    /* ------------------------------------------
+       SCROLL REVEAL ANIMATION OBSERVER
+       ------------------------------------------ */
+    const revealElements = document.querySelectorAll('.portfolio-section, .project-card, .cert-card');
+    
+    // Add initial reveal class
+    revealElements.forEach(el => el.classList.add('reveal'));
+
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: unobserve after revealing once
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    revealElements.forEach(el => revealOnScroll.observe(el));
+
+   /* ------------------------------------------
+       REAL-TIME PROJECT KEYWORD SEARCH & FILTER
+       ------------------------------------------ */
+    const searchInput = document.getElementById('projectSearchInput');
+
+    if (searchInput && projectCards.length) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+
+            // Reset category filter buttons to 'all' when typing a search query
+            if (filterButtons.length) {
+                filterButtons.forEach(btn => {
+                    if (btn.getAttribute('data-filter') === 'all') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+
+            projectCards.forEach(card => {
+                const textContent = card.innerText.toLowerCase();
+                if (textContent.includes(query)) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        });
+    }
+
+    /* ------------------------------------------
+       HIRE ME MODAL POPUP HANDLER
+       ------------------------------------------ */
+    const modal = document.getElementById('hireModal');
+    const openModalBtns = document.querySelectorAll('.open-hire-modal');
+    const closeModalBtn = document.querySelector('.modal-close-btn');
+
+    if (modal) {
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
+        });
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        }
+
+        // Close when clicking outside the modal card
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Close on ESC key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+
+    /* ------------------------------------------
+       BACK-TO-TOP SCROLL BUTTON HANDLER
+       ------------------------------------------ */
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    /* ------------------------------------------
+       CONTACT FORM SUCCESS FEEDBACK HANDLER
+       ------------------------------------------ */
+    const contactForm = document.getElementById('contactForm');
+    const successBanner = document.getElementById('formSuccessMessage');
+
+    if (contactForm && successBanner) {
+        contactForm.addEventListener('submit', (e) => {
+            // If using EmailJS or standard form submission, show banner:
+            // e.preventDefault(); // Uncomment if handling via AJAX/EmailJS submit event
+            
+            successBanner.classList.add('show');
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                successBanner.classList.remove('show');
+            }, 5000);
+        });
+    }
+
+    /* ------------------------------------------
+       MOUSE SPOTLIGHT GLOW HANDLER
+       ------------------------------------------ */
+    const spotlightCards = document.querySelectorAll('.elite-project-card, .bento-card, .cert-card');
+
+    spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    /* ------------------------------------------
+       LIVE LOCAL TIME CLOCK HANDLER
+       ------------------------------------------ */
+    const timeDisplay = document.getElementById('localTimeDisplay');
+
+    function updateLocalTime() {
+        if (timeDisplay) {
+            const options = { 
+                timeZone: 'Asia/Manila', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                second: 'numeric',
+                hour12: true 
+            };
+            const timeString = new Intl.DateTimeFormat([], options).format(new Date());
+            timeDisplay.innerText = `Iligan City, PH • ${timeString} (Available)`;
+        }
+    }
+
+    updateLocalTime();
+    setInterval(updateLocalTime, 1000);
+
+    /* ------------------------------------------
+       DYNAMIC TAB TITLE HANDLER
+       ------------------------------------------ */
+    const originalTitle = document.title;
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            document.title = "Come back! 🚀 Hire Domnic Llanos";
+        } else {
+            document.title = originalTitle;
+        }
+    });

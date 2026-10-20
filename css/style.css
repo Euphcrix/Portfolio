@@ -1489,12 +1489,14 @@ body {
     padding-top: 20px;
 }
 
-/* 2. Fix the theme toggle button styling & alignment inside the header */
-header .theme-toggle, .theme-toggle {
-    background: var(--bg-secondary, #f4f5f7);
-    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
-    cursor: pointer;
-    color: var(--text-color, #111827);
+/* ==========================================
+   CLEAN THEME TOGGLE BUTTON FIX
+   ========================================== */
+header .theme-toggle, 
+.theme-toggle {
+    color: var(--text-color);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     font-size: 1rem;
     width: 38px;
     height: 38px;
@@ -1502,13 +1504,39 @@ header .theme-toggle, .theme-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    cursor: pointer;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-header .theme-toggle:hover, .theme-toggle:hover {
-    background-color: var(--text-color, #111827);
-    color: var(--bg-primary, #fcfcfc);
+header .theme-toggle:hover, 
+.theme-toggle:hover {
+    background-color: var(--border-hover);
     transform: scale(1.05);
+    outline: none !important;
+}
+
+header .theme-toggle:focus, 
+.theme-toggle:focus,
+header .theme-toggle:active, 
+.theme-toggle:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Dark mode specific toggle styling */
+[data-theme="dark"] header .theme-toggle, 
+[data-theme="dark"] .theme-toggle {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f3f4f6;
+}
+
+[data-theme="dark"] header .theme-toggle:hover, 
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
 /* ==========================================
@@ -2030,4 +2058,410 @@ body:not([data-theme="dark"]) .contact-container {
 .live-preview-badge:hover {
     background-color: var(--text-color);
     color: var(--bg-primary);
+}
+
+/* ==========================================
+   SCROLL REVEAL ANIMATION STYLES
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   CUSTOM SCROLLER STYLES
+   ========================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS FIXES
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* Prevent horizontal overflow on mobile */
+    body, main, section {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Fix hero card and general container padding */
+    .hero-card, .boutique-hero-card, .portfolio-section {
+        padding: 1.25rem !important;
+        margin: 0.75rem !important;
+        width: auto !important;
+    }
+
+    /* Stack CTA buttons vertically on small screens */
+    .hero-cta-group, .contact-card .hero-cta-group {
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .hero-cta-group a, .btn-primary-custom, .btn-secondary-custom {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    /* Fix contact detail items text wrapping */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        word-break: break-all;
+    }
+
+    .contact-value {
+        font-size: 0.9rem !important;
+        word-break: break-word;
+    }
+
+    /* Fix navigation bar spacing on mobile */
+    .nav-menu {
+        padding: 8px 12px !important;
+    }
+}
+
+/* ==========================================
+   PERMANENT CLICK HIGHLIGHT & FOCUS FIX
+   ========================================== */
+button:focus,
+button:active,
+button:focus-visible,
+.theme-toggle:focus,
+.theme-toggle:active,
+.theme-toggle:focus-visible,
+.mobile-menu-btn:focus,
+.mobile-menu-btn:active,
+.mobile-menu-btn:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: var(--border-color) !important;
+    background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] button:focus,
+[data-theme="dark"] button:active,
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] .theme-toggle:focus,
+[data-theme="dark"] .theme-toggle:active,
+[data-theme="dark"] .theme-toggle:focus-visible,
+[data-theme="dark"] .mobile-menu-btn:focus,
+[data-theme="dark"] .mobile-menu-btn:active,
+[data-theme="dark"] .mobile-menu-btn:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ==========================================
+   CENTER SEARCH BAR ALIGNMENT
+   ========================================== */
+.projects-controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.project-search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 360px; /* Perfect centered width */
+    margin: 0 auto;
+}
+
+/* ==========================================
+   HIRE ME MODAL POPUP STYLES
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10000;
+    padding: 1rem;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: var(--text-color);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-action-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.25s ease;
+}
+
+.modal-action-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.modal-action-icon {
+    font-size: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.modal-action-card strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 2px;
+}
+
+.modal-action-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   BACK-TO-TOP FLOATING BUTTON STYLES
+   ========================================== */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.back-to-top-btn:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+    background-color: var(--text-color);
+    color: var(--bg-primary);
+}
+
+[data-theme="dark"] .back-to-top-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ==========================================
+   LIVE ACTIVITY STATUS PILL STYLES
+   ========================================== */
+.live-activity-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.live-activity-badge strong {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.activity-pulse-dot {
+    width: 9px;
+    height: 9px;
+    background-color: #3b82f6; /* Vibrant tech blue */
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0.4);
+    animation: activityPulse 2s infinite;
+}
+
+@keyframes activityPulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.6);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+/* ==========================================
+   MOUSE SPOTLIGHT GLOW EFFECT
+   ========================================== */
+.elite-project-card, .bento-card, .cert-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.elite-project-card::before, 
+.bento-card::before, 
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+[data-theme="dark"] .elite-project-card::before, 
+[data-theme="dark"] .bento-card::before, 
+[data-theme="dark"] .cert-card::before {
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+}
+
+.elite-project-card:hover::before, 
+.bento-card:hover::before, 
+.cert-card:hover::before {
+    opacity: 1;
+}
+
+/* ==========================================
+   LIVE TIME BADGE STYLES
+   ========================================== */
+.live-time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    backdrop-filter: blur(10px);
+    margin-top: 0.5rem;
 }

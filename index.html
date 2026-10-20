@@ -95,8 +95,8 @@
 
 <!-- Action Buttons -->
             <div class="hero-cta-group">
-                <a href="#contact" class="btn-primary-custom">Get In Touch →</a>
-                <a href="assets/docs/resume.pdf" target="_blank" class="btn-secondary-custom">View Resume</a>
+                <a href="#contact" class="btn-primary-custom open-hire-modal">Get In Touch 🚀</a>
+                <a href="assets/docs/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary-custom">View Resume</a>
             </div>
         </div>
     </section>
@@ -140,6 +140,17 @@
             <h2 class="section-title">About Me</h2>
             <p class="section-subtitle">Bridging practical e-commerce operations, UI/UX design, and modern software engineering.</p>
         </div>
+                    <!-- Live Activity Status Pill -->
+            <div class="live-activity-badge">
+                <span class="activity-pulse-dot"></span>
+                <span class="activity-text"><strong>Status:</strong> Building scalable apps & managing e-commerce pipelines</span>
+            </div>
+
+                        <div class="live-time-badge">
+                <span class="time-globe">🕒</span>
+                <span id="localTimeDisplay">Iligan City, PH • Loading time...</span>
+            </div>
+            
 
             <div class="bento-about-grid">
                 <!-- Card 1: Main Story & Background -->
@@ -192,23 +203,32 @@
             </div>
         </section>
 
-<!-- 3. PROJECTS SECTION WITH FILTER BUTTONS -->
+<!-- 3. PROJECTS SECTION WITH SEARCH & FILTER -->
 <section id="projects" class="portfolio-section">
     <div class="section-header">
         <h2 class="section-title">Featured Projects</h2>
         <p class="section-subtitle">Explore my recent development work, e-commerce systems, and design projects.</p>
     </div>
 
-    <!-- Filter Buttons Bar (Sits ABOVE the grid) -->
-    <div class="project-filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="dev">Web Apps</button>
-        <button class="filter-btn" data-filter="va">VA & E-Commerce</button>
-        <button class="filter-btn" data-filter="design">UI/UX Design</button>
+    <!-- Projects Search & Filter Container -->
+    <div class="projects-controls-container">
+        <!-- Search Bar -->
+        <div class="project-search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="projectSearchInput" placeholder="Search projects by keyword or tech..." class="project-search-input">
+        </div>
+
+        <!-- Filter Buttons Bar -->
+        <div class="project-filter-bar" style="margin-bottom: 0;">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="dev">Web Apps</button>
+            <button class="filter-btn" data-filter="va">VA & E-Commerce</button>
+            <button class="filter-btn" data-filter="design">UI/UX Design</button>
+        </div>
     </div>
 
     <!-- Projects Grid Container -->
-    <div class="projects-grid">
+    <div class="projects-grid" style="margin-top: 2.5rem;">
 
         <!-- Project Card 1 -->
         <div class="project-card elite-project-card" data-category="dev">
@@ -229,7 +249,7 @@
         <!-- Project Card 2 -->
         <div class="project-card elite-project-card" data-category="va">
             <div class="project-preview-container">
-                <img src="assets/images/catcry.jpg" alt="Project Preview" class="project-preview-img">
+                <img src="assets/images/catloading.jpg" alt="Project Preview" class="project-preview-img">
                 <a href="#" target="_blank" class="live-preview-badge">
                     <span>Live Demo ↗</span>
                 </a>
@@ -394,6 +414,11 @@
                 <p class="section-subtitle">Let's collaborate on virtual assistant projects, UI/UX designs, or full-stack web development.</p>
             </div>
 
+                            <!-- Contact Form Success Alert Message -->
+                <div id="formSuccessMessage" class="form-success-banner">
+                    <span>✨ Message sent successfully! I will get back to you soon.</span>
+                </div>
+
             <div class="contact-container">
                 <div class="contact-card boutique-hero-card">
                     <div class="hero-top-row">
@@ -443,10 +468,50 @@
             </div>
         </section>
     </main>
+    <!-- HIRE ME / CONTACT MODAL POPUP -->
+<div id="hireModal" class="modal-overlay">
+    <div class="modal-content boutique-hero-card">
+        <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+        <div class="section-header" style="margin-bottom: 1.5rem; text-align: left;">
+            <h3 class="section-title" style="font-size: 1.5rem;">Let's Work Together</h3>
+            <p class="section-subtitle" style="margin: 0; font-size: 0.85rem;">Choose how you'd like to connect with me for projects or opportunities.</p>
+        </div>
+
+        <div class="modal-body">
+            <a href="mailto:llanosdomnic1@gmail.com" class="modal-action-card copy-email-btn" data-email="llanosdomnic1@gmail.com">
+                <span class="modal-action-icon">✉️</span>
+                <div>
+                    <strong>Direct Email</strong>
+                    <p>llanosdomnic1@gmail.com (Click to Copy)</p>
+                </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/domnic-llanos-3067883b6/" target="_blank" rel="noopener noreferrer" class="modal-action-card">
+                <span class="modal-action-icon">💼</span>
+                <div>
+                    <strong>Connect on LinkedIn</strong>
+                    <p>View professional profile & recommendations</p>
+                </div>
+            </a>
+
+            <a href="assets/docs/resume.pdf" target="_blank" rel="noopener noreferrer" class="modal-action-card">
+                <span class="modal-action-icon">📄</span>
+                <div>
+                    <strong>View Resume</strong>
+                    <p>Open full curriculum vitae in a new tab</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 
   <script src="js/script.js" defer></script>
     
     <!-- Toast Notification Element -->
     <div id="toast" class="toast-notification">Email copied to clipboard!</div>
+            <!-- Back-to-Top Floating Scroll Button -->
+        <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
 </body>
 </html>
