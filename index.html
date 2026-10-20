@@ -60,6 +60,11 @@
                                 <span class="verified-badge" title="Verified Developer">✓</span>
                             </div>
                             <p class="hero-location">📍 Iligan City, PH</p>
+                            <!-- Live Status / Current Focus Widget -->
+                        <div class="live-status-pill">
+                            <span class="status-pulse-dot"></span>
+                            <span class="status-text"><strong>Current Focus:</strong> 3rd-Year IT Student & Full-Stack Dev</span>
+                        </div>
                         </div>
                     </div>
                     
@@ -86,57 +91,55 @@
                     Third-year Bachelor of Science in Information Technology student based in Iligan City with extensive practical expertise in managing 4 Facebook business pages, processing digital orders, handling supply chain tracking, conducting web research, UI/UX design, and deploying full-stack web applications on Vercel.
         </p>
 
-                <!-- Categorized Skills Grid -->
-                <div class="hero-skills-container">
-                    <div class="skill-category-row">
-                        <span class="skill-cat-label">VA & Operations:</span>
-                        <div class="skills-flex">
-                            <span class="skill-tag">Google Workspace</span>
-                            <span class="skill-tag">Facebook Pages</span>
-                            <span class="skill-tag">Web Research</span>
-                            <span class="skill-tag">Data Encoding</span>
-                        </div>
-                    </div>
-                    <div class="skill-category-row">
-                        <span class="skill-cat-label">Design & Deployment:</span>
-                        <div class="skills-flex">
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">Photoshop</span>
-                        </div>
-                    </div>
-                    <div class="skill-category-row">
-                        <span class="skill-cat-label">Development:</span>
-                        <div class="skills-flex">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">PHP</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">Supabase</span>
-                        </div>
-                    </div>
-                </div>
+            
 
-                <!-- Action Buttons -->
-                <div class="hero-cta-group">
-                    <a href="#contact" class="btn-primary-custom">
-                        Get In Touch 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <a href="assets/docs/resume.pdf" target="_blank" class="btn-secondary-custom">View Resume</a>
-                </div>
+<!-- Action Buttons -->
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary-custom">Get In Touch →</a>
+                <a href="assets/docs/resume.pdf" target="_blank" class="btn-secondary-custom">View Resume</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-<!-- 2. ABOUT SECTION -->
-        <section id="about" class="portfolio-section">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Bridging practical e-commerce operations, UI/UX design, and modern software engineering.</p>
-            </div>
+    <!-- INFINITE SKILLS MARQUEE TICKER -->
+    <div class="skills-marquee-section">
+      <div class="marquee-track">
+        <!-- First Set of Tech Stack Cards -->
+        <div class="marquee-content">
+          <div class="marquee-card"><strong>HTML/CSS</strong><span>Frontend</span></div>
+          <div class="marquee-card"><strong>JavaScript</strong><span>Language</span></div>
+          <div class="marquee-card"><strong>React</strong><span>Framework</span></div>
+          <div class="marquee-card"><strong>PHP</strong><span>Backend</span></div>
+          <div class="marquee-card"><strong>PostgreSQL</strong><span>Database</span></div>
+          <div class="marquee-card"><strong>Supabase</strong><span>BaaS</span></div>
+          <div class="marquee-card"><strong>Figma</strong><span>Design</span></div>
+          <div class="marquee-card"><strong>Vercel</strong><span>Hosting</span></div>
+          <div class="marquee-card"><strong>Google Workspace</strong><span>VA & Ops</span></div>
+          <div class="marquee-card"><strong>Photoshop</strong><span>Design</span></div>
+        </div>
+        
+        <!-- Duplicate Clone Set for Seamless Continuous Infinite Loop -->
+        <div class="marquee-content" aria-hidden="true">
+          <div class="marquee-card"><strong>HTML/CSS</strong><span>Frontend</span></div>
+          <div class="marquee-card"><strong>JavaScript</strong><span>Language</span></div>
+          <div class="marquee-card"><strong>React</strong><span>Framework</span></div>
+          <div class="marquee-card"><strong>PHP</strong><span>Backend</span></div>
+          <div class="marquee-card"><strong>PostgreSQL</strong><span>Database</span></div>
+          <div class="marquee-card"><strong>Supabase</strong><span>BaaS</span></div>
+          <div class="marquee-card"><strong>Figma</strong><span>Design</span></div>
+          <div class="marquee-card"><strong>Vercel</strong><span>Hosting</span></div>
+          <div class="marquee-card"><strong>Google Workspace</strong><span>VA & Ops</span></div>
+          <div class="marquee-card"><strong>Photoshop</strong><span>Design</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ABOUT SECTION -->
+    <section id="about" class="portfolio-section">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Bridging practical e-commerce operations, UI/UX design, and modern software engineering.</p>
+        </div>
 
             <div class="bento-about-grid">
                 <!-- Card 1: Main Story & Background -->
@@ -189,150 +192,58 @@
             </div>
         </section>
 
-<!-- 3. PROJECTS SECTION (Advanced Bento Workspace) -->
-        <section id="projects" class="portfolio-section">
-            <div class="section-header">
-                <h2 class="section-title">Projects & Systems</h2>
-                <p class="section-subtitle">Upcoming full-stack software applications currently in development.</p>
-            </div>
-            
-            <div class="bento-slider-container">
-                <!-- Navigation Control: Left -->
-                <button class="bento-nav-btn bento-prev" id="prevBtn" aria-label="Previous System">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                
-                <div class="bento-viewport">
-                    <div class="bento-track" id="sliderTrack">
-                        <!-- System 1 -->
-                        <div class="bento-slide active" data-index="0">
-                            <div class="bento-workspace-card">
-                                <div class="bento-preview-pane">
-                                    <div class="pane-topbar">
-                                        <div class="pane-dots"><span></span><span></span><span></span></div>
-                                        <div class="ide-tabs">
-                                            <span class="ide-tab active">equipment-tracker.php</span>
-                                        </div>
-                                        <span class="pane-env">PHP 8.2</span>
-                                    </div>
-                                    <div class="pane-code-content">
-                                        <div class="code-line-mock active-line"><span class="keyword">class</span> <span class="class-name">EquipmentManager</span> {</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">private</span> <span class="variable">$db</span>;</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">public function</span> <span class="function">trackAsset</span>(<span class="variable">$id</span>) {</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">$this</span>-><span class="variable">db</span>->query(<span class="string">"SELECT * FROM inventory..."</span>);</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;}</div>
-                                        <div class="code-line-mock">}</div>
-                                        <div class="pane-status-beam">
-                                            <span class="beam-dot"></span> Database Schema & Logging In Progress
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bento-details-pane">
-                                    <span class="bento-category">Planned Full-Stack System</span>
-                                    <h3>Equipment Tracking System</h3>
-                                    <p>Upcoming web-based inventory and asset tracker planned with structured relational database logging and administrative reporting features.</p>
-                                    <div class="bento-tech-list">
-                                        <span class="bento-pill">PHP</span>
-                                        <span class="bento-pill">MySQL</span>
-                                        <span class="bento-pill">JavaScript</span>
-                                    </div>
-                                    <div class="bento-footer">
-                                        <span class="bento-status-badge">⚡ In Active Development</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!-- 3. PROJECTS SECTION WITH FILTER BUTTONS -->
+<section id="projects" class="portfolio-section">
+    <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Explore my recent development work, e-commerce systems, and design projects.</p>
+    </div>
 
-                        <!-- System 2 -->
-                        <div class="bento-slide" data-index="1">
-                            <div class="bento-workspace-card">
-                                <div class="bento-preview-pane">
-                                    <div class="pane-topbar">
-                                        <div class="pane-dots"><span></span><span></span><span></span></div>
-                                        <div class="ide-tabs">
-                                            <span class="ide-tab active">workflow-router.sys</span>
-                                        </div>
-                                        <span class="pane-env">Logic v1.0</span>
-                                    </div>
-                                    <div class="pane-code-content">
-                                        <div class="code-line-mock active-line"><span class="keyword">workflow</span>.<span class="class-name">registerRequest</span>({</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="property">module</span>: <span class="string">"DocumentVerification"</span>,</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="property">status</span>: <span class="string">"Pending Validation"</span>,</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="property">routing</span>: <span class="keyword">true</span></div>
-                                        <div class="code-line-mock">});</div>
-                                        <div class="pane-status-beam">
-                                            <span class="beam-dot"></span> Workflow Routing Architecture
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bento-details-pane">
-                                    <span class="bento-category">Planned Workflow Platform</span>
-                                    <h3>Document Request Tracking System</h3>
-                                    <p>Upcoming administrative workflow platform designed to streamline record verification and request processing.</p>
-                                    <div class="bento-tech-list">
-                                        <span class="bento-pill">HTML/CSS</span>
-                                        <span class="bento-pill">PHP</span>
-                                        <span class="bento-pill">MySQL</span>
-                                    </div>
-                                    <div class="bento-footer">
-                                        <span class="bento-status-badge">⚡ In Active Development</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Filter Buttons Bar (Sits ABOVE the grid) -->
+    <div class="project-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="dev">Web Apps</button>
+        <button class="filter-btn" data-filter="va">VA & E-Commerce</button>
+        <button class="filter-btn" data-filter="design">UI/UX Design</button>
+    </div>
 
-                        <!-- System 3 -->
-                        <div class="bento-slide" data-index="2">
-                            <div class="bento-workspace-card">
-                                <div class="bento-preview-pane">
-                                    <div class="pane-topbar">
-                                        <div class="pane-dots"><span></span><span></span><span></span></div>
-                                        <div class="ide-tabs">
-                                            <span class="ide-tab active">StorefrontDashboard.tsx</span>
-                                        </div>
-                                        <span class="pane-env">React 18</span>
-                                    </div>
-                                    <div class="pane-code-content">
-                                        <div class="code-line-mock active-line"><span class="keyword">const</span> <span class="class-name">StorefrontHub</span> = () => {</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">const</span> [orders, setOrders] = <span class="function">useSupabase</span>();</div>
-                                        <div class="code-line-mock">&nbsp;&nbsp;<span class="keyword">return</span> &lt;<span class="class-name">DashboardGrid</span> data={orders} /&gt;;</div>
-                                        <div class="code-line-mock">};</div>
-                                        <div class="pane-status-beam">
-                                            <span class="beam-dot"></span> API Integration & UI Mockups
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bento-details-pane">
-                                    <span class="bento-category">Planned React Dashboard</span>
-                                    <h3>E-Commerce Storefront Manager</h3>
-                                    <p>Upcoming management dashboard built to track multi-channel customer orders, inventory sync, and fulfillment statuses.</p>
-                                    <div class="bento-tech-list">
-                                        <span class="bento-pill">React</span>
-                                        <span class="bento-pill">JavaScript</span>
-                                        <span class="bento-pill">Supabase</span>
-                                    </div>
-                                    <div class="bento-footer">
-                                        <span class="bento-status-badge">⚡ In Active Development</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Projects Grid Container -->
+    <div class="projects-grid">
 
-                <!-- Navigation Control: Right -->
-                <button class="bento-nav-btn bento-next" id="nextBtn" aria-label="Next System">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
+        <!-- Project Card 1 -->
+        <div class="project-card elite-project-card" data-category="dev">
+            <div class="project-preview-container">
+                <img src="assets/images/cat.jpg" alt="Project Preview" class="project-preview-img">
+                <a href="https://your-live-app.vercel.app" target="_blank" class="live-preview-badge">
+                    <span>Live Demo ↗</span>
+                </a>
             </div>
 
-            <!-- Bento Pagination Dots -->
-            <div class="slider-dots" id="sliderDots">
-                <span class="slider-dot active" data-index="0"></span>
-                <span class="slider-dot" data-index="1"></span>
-                <span class="slider-dot" data-index="2"></span>
+            <div class="project-content">
+                <span class="project-category">Full-Stack Dev</span>
+                <h3 class="project-title">Your Web App Title</h3>
+                <p class="project-description">Description of your web application built with React/Node/PHP.</p>
             </div>
-        </section>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card elite-project-card" data-category="va">
+            <div class="project-preview-container">
+                <img src="assets/images/catcry.jpg" alt="Project Preview" class="project-preview-img">
+                <a href="#" target="_blank" class="live-preview-badge">
+                    <span>Live Demo ↗</span>
+                </a>
+            </div>
+
+            <div class="project-content">
+                <span class="project-category">E-Commerce Support</span>
+                <h3 class="project-title">Facebook Business Page Management</h3>
+                <p class="project-description">Streamlining order processing, supply chain tracking, and customer engagement.</p>
+            </div>
+        </div>
+
+    </div> <!-- End of projects-grid -->
+</section>
 
 <!-- 3. EXPERIENCE SECTION -->
         <section id="experience" class="portfolio-section">
@@ -446,6 +357,35 @@
                 </div>
             </div>
         </section>
+        <!-- CERTIFICATIONS & ACHIEVEMENTS SECTION -->
+<section id="certifications" class="portfolio-section">
+    <div class="section-header">
+        <h2 class="section-title">Certificates & Achievements</h2>
+        <p class="section-subtitle">Recognitions, training, and milestones in development and operations.</p>
+    </div>
+
+    <div class="cert-grid">
+        <!-- Certificate Card 2 (Web App & Deployment) -->
+        <div class="cert-card elite-project-card">
+            <div class="cert-icon">💻</div>
+            <div class="cert-content">
+                <span class="cert-issuer">Full-Stack Development</span>
+                <h3 class="cert-title">Web App & Deployment Certification</h3>
+                <p class="cert-description">Completed hands-on training for modern web architectures and Vercel cloud deployments.</p>
+            </div>
+        </div>
+
+        <!-- Certificate Card 3 (E-Commerce & VA) -->
+        <div class="cert-card elite-project-card">
+            <div class="cert-icon">📈</div>
+            <div class="cert-content">
+                <span class="cert-issuer">E-Commerce & VA</span>
+                <h3 class="cert-title">Digital Operations & Page Management</h3>
+                <p class="cert-description">Validated expertise in managing multiple business pages, order pipelines, and supply chains.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- 4. CONTACT SECTION -->
         <section id="contact" class="portfolio-section">
@@ -479,7 +419,7 @@
                             <span class="contact-icon">✉️</span>
                             <div class="contact-details">
                                 <span class="contact-label">Email Me</span>
-                                <a href="mailto:llanosdomnic1@gmail.com" class="contact-value">llanosdomnic1@gmail.com</a>
+                                <a href="mailto:llanosdomnic1@gmail.com" class="contact-value copy-email-btn" data-email="llanosdomnic1@gmail.com">llanosdomnic1@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -504,6 +444,9 @@
         </section>
     </main>
 
-    <script src="js/script.js" defer></script>
+  <script src="js/script.js" defer></script>
+    
+    <!-- Toast Notification Element -->
+    <div id="toast" class="toast-notification">Email copied to clipboard!</div>
 </body>
 </html>

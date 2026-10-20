@@ -1,18 +1,20 @@
+/* ==========================================
+   DOMNIC PORTFOLIO - MAIN SCRIPT (UNIFIED & OPTIMIZED)
+   ========================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
 
-   // 1. DARK MODE TOGGLE (with localStorage & Universal Event Delegation)
+    /* ------------------------------------------
+       1. DARK MODE TOGGLE (with localStorage)
+       ------------------------------------------ */
     const currentTheme = localStorage.getItem('theme') || 'light';
-
     if (currentTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         document.body.setAttribute('data-theme', 'dark');
     }
 
-    // Universal click listener to catch theme toggle button clicks anywhere in the header
     document.addEventListener('click', (e) => {
         const toggleBtn = e.target.closest('#theme-toggle, .theme-toggle, button:has(svg), button:has(i)');
-        
-        // Verify it's the theme button (checking if it contains a sun/moon icon or toggle identifiers)
         if (toggleBtn && (toggleBtn.id === 'theme-toggle' || toggleBtn.classList.contains('theme-toggle') || toggleBtn.querySelector('svg, i'))) {
             let isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             if (isDark) {
@@ -26,32 +28,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-    // 2. SINGLE-PAGE SCROLL SPY & NAV HIGHLIGHT
-const sections = document.querySelectorAll('.portfolio-section');
-const navLinks = document.querySelectorAll('nav ul li a'); // Updated to catch all nav links
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPosition = window.pageYOffset + 200;
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
-        }
+    /* ------------------------------------------
+       2. SINGLE-PAGE SCROLL SPY & NAV HIGHLIGHT
+       ------------------------------------------ */
+    const sections = document.querySelectorAll('.portfolio-section');
+    const navLinks = document.querySelectorAll('nav ul li a, header nav a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPosition = window.pageYOffset + 200;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === `#${current}` || (current === '' && href === '#home')) {
+                link.classList.add('active');
+            }
+        });
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        if (href === `#${current}` || (current === '' && href === '#home')) {
-            link.classList.add('active');
-        }
-    });
-});
 
-    // 3. EMAILJS FORM SUBMISSION
+    /* ------------------------------------------
+       3. EMAILJS FORM SUBMISSION
+       ------------------------------------------ */
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
 
@@ -78,7 +87,10 @@ window.addEventListener('scroll', () => {
         });
     }
 
-    // 4. MOBILE MENU TOGGLE
+
+    /* ------------------------------------------
+       4. MOBILE MENU TOGGLE
+       ------------------------------------------ */
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -87,7 +99,6 @@ window.addEventListener('scroll', () => {
             navMenu.classList.toggle('active');
         });
 
-        // Automatically close mobile menu when a navigation link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -95,18 +106,17 @@ window.addEventListener('scroll', () => {
         });
     }
 
-});
 
-// 5. SECTION FADE-IN SCROLL OBSERVER
-    const sections = document.querySelectorAll('.portfolio-section');
-    
+    /* ------------------------------------------
+       5. SECTION FADE-IN SCROLL OBSERVER
+       ------------------------------------------ */
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.05
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -116,75 +126,29 @@ window.addEventListener('scroll', () => {
 
     sections.forEach(section => {
         observer.observe(section);
-        // Force trigger immediately if already in view
         if (section.getBoundingClientRect().top < window.innerHeight) {
             section.classList.add('visible');
         }
     });
 
-    // 6. ELITE CARD SPOTLIGHT MOUSE EFFECT
-    const cards = document.querySelectorAll('.about-card, .project-card, .timeline-item');
-    
+
+    /* ------------------------------------------
+       6. ELITE CARD SPOTLIGHT MOUSE EFFECT
+       ------------------------------------------ */
+    const cards = document.querySelectorAll('.about-card, .project-card, .timeline-item, .bento-workspace-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', e => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
 
-// ==========================================
-// INTERACTIVE PROJECTS CAROUSEL SLIDER
-// ==========================================
-const track = document.getElementById('projectsTrack');
-if (track) {
-    const cards = Array.from(track.children);
-    const nextButton = document.getElementById('nextBtn');
-    const prevButton = document.getElementById('prevBtn');
-    const dotsContainer = document.getElementById('carouselDots');
-    const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
-    
-    let currentIndex = 0;
 
-    function updateCarousel(index) {
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-        currentIndex = index;
-    }
-
-    if (nextButton) {
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % cards.length;
-            updateCarousel(currentIndex);
-        });
-    }
-
-    if (prevButton) {
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-            updateCarousel(currentIndex);
-        });
-    }
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            updateCarousel(i);
-        });
-    });
-}
-
-/* ==========================================
-   UNIFIED PORTFOLIO SCRIPT
-   ========================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    
     /* ------------------------------------------
-       1. SEAMLESS INFINITE CLONE CAROUSEL
+       7. BENTO WORKSPACE INFINITE SLIDER
        ------------------------------------------ */
     const sliderTrack = document.getElementById('sliderTrack');
     const originalCards = document.querySelectorAll('.bento-slide');
@@ -193,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
 
     if (originalCards.length && sliderTrack) {
-        // Clone the first card and append it for the seamless forward loop
         const firstCardClone = originalCards[0].cloneNode(true);
         sliderTrack.appendChild(firstCardClone);
 
@@ -270,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ------------------------------------------
-       2. DYNAMIC TYPEWRITER EFFECT
+       8. DYNAMIC TYPEWRITER EFFECT
        ------------------------------------------ */
     const typedTextElement = document.getElementById('typed-text');
     if (typedTextElement) {
@@ -301,12 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000; // Pause at full word
+                typeSpeed = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 500; // Pause before next word
+                typeSpeed = 500;
             }
 
             setTimeout(typeEffect, typeSpeed);
@@ -315,14 +278,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(typeEffect, 500);
     }
 
-});
 
-
-/* ==========================================
-   SMOOTH OFFSET SCROLLING FOR NAVBAR & ANCHORS
-   ========================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    // Handle initial page load with a hash (e.g., #home)
+    /* ------------------------------------------
+       9. SMOOTH OFFSET SCROLLING FOR ANCHORS
+       ------------------------------------------ */
     if (window.location.hash) {
         setTimeout(() => {
             const element = document.querySelector(window.location.hash);
@@ -330,15 +289,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const headerOffset = 100;
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         }, 50);
     }
 
-    // Intercept clicks on navigation links for smooth offset scrolling
     document.querySelectorAll('nav a, header a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
@@ -349,13 +304,64 @@ document.addEventListener('DOMContentLoaded', () => {
                     const headerOffset = 100;
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     history.pushState(null, null, targetId);
                 }
             }
         });
     });
+
 });
+
+/* ------------------------------------------
+       INTERACTIVE PROJECT FILTER
+       ------------------------------------------ */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.projects-grid .project-card');
+
+    if (filterButtons.length && projectCards.length) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+
+                    if (filterValue === 'all' || cardCategory === filterValue) {
+                        card.classList.remove('hide');
+                    } else {
+                        card.classList.add('hide');
+                    }
+                });
+            });
+        });
+    }
+
+    /* ------------------------------------------
+       QUICK-COPY EMAIL TOAST NOTIFICATION
+       ------------------------------------------ */
+    const copyEmailBtns = document.querySelectorAll('.copy-email-btn');
+    const toast = document.getElementById('toast');
+
+    if (copyEmailBtns.length && toast) {
+        copyEmailBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = btn.getAttribute('data-email') || btn.innerText.trim();
+
+                navigator.clipboard.writeText(email).then(() => {
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 2500);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
+        });
+    }
