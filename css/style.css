@@ -1,17 +1,24 @@
 :root {
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --bg-secondary: rgba(243, 244, 246, 0.6);
-    --border-color: rgba(0, 0, 0, 0.08);
-    --border-hover: rgba(0, 0, 0, 0.2);
+    /* Enhanced Light Mode Color Palette */
+    --bg-primary: #f8fafc;
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --bg-secondary: rgba(241, 245, 249, 0.8);
+    --text-color: #0f172a;
+    --text-muted: #475569;
+    --border-color: rgba(15, 23, 42, 0.08);
+    --border-hover: rgba(15, 23, 42, 0.20);
 }
 
 [data-theme="dark"] {
+    /* Dark Mode Palette */
+    --bg-primary: #0a0a0c;
     --card-bg: rgba(22, 22, 24, 0.85);
     --bg-secondary: rgba(30, 30, 35, 0.6);
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
     --border-color: rgba(255, 255, 255, 0.08);
     --border-hover: rgba(255, 255, 255, 0.25);
 }
-
 /* Give all main cards a sophisticated organic border & multi-layered shadow */
 .hero-card, .clean-card-inner, .bento-workspace-card {
     backdrop-filter: blur(20px);
@@ -2581,35 +2588,70 @@ button:focus-visible,
 }
 
 /* ==========================================
-   MODAL POPUP TOAST NOTIFICATION STYLES
+   CUSTOM MAGNETIC CURSOR & SHADOWS (SNAPPY)
    ========================================== */
-.modal-content {
-    position: relative; /* Ensures toast aligns properly inside modal */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
 }
 
-.modal-toast-popup {
-    position: absolute;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    background-color: #b91010;
-    color: #ffffff;
-    padding: 8px 18px;
-    border-radius: 9999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(185, 16, 16, 0.35);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #0f172a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
     pointer-events: none;
+    z-index: 99999;
+    transition: opacity 0.2s ease, background-color 0.3s ease;
+    transform: translate(-50%, -50%);
 }
 
-.modal-toast-popup.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+.cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(15, 23, 42, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+body.cursor-hover .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(15, 23, 42, 0.06);
+    border-color: rgba(15, 23, 42, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+body.cursor-hover .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.5;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .cursor-dot {
+    background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .cursor-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-theme="dark"] body.cursor-hover .cursor-outline {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6) !important;
 }
 
 /* ==========================================
@@ -2821,23 +2863,34 @@ body.cursor-hover .cursor-dot {
 }
 
 /* ==========================================
-   UNIFIED DARK SLATE MODAL FOR BOTH MODES
+   THEME-ADAPTIVE MODAL FIX
    ========================================== */
-
 .modal-content {
-    background-color: #111827 !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background-color: var(--card-bg, #ffffff) !important;
+    color: var(--text-color, #0f172a) !important;
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1)) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
 }
 
 .modal-content h3, 
 .modal-content h4, 
 .modal-content p, 
-.modal-content span:not(#modalTechStack span), 
-.modal-content div:not(#modalTechStack) {
-    color: #ffffff !important;
+.modal-content span {
+    color: var(--text-color, #0f172a) !important;
 }
 
+/* Fix action links/buttons inside modal */
+.modal-content a {
+    color: var(--text-color, #0f172a) !important;
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.2)) !important;
+    background-color: var(--bg-secondary, #f1f5f9) !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+}
+
+/* Tech Stack Badges */
 #modalTechStack {
     background-color: transparent !important;
     border: none !important;
@@ -2849,13 +2902,35 @@ body.cursor-hover .cursor-dot {
 #modalTechStack span,
 #modalTechStack div,
 #modalTechStack a {
-    background-color: #1f2937 !important;
-    color: #ffffff !important;
+    background-color: var(--bg-secondary, #e2e8f0) !important;
+    color: var(--text-color, #0f172a) !important;
     padding: 0.3rem 0.8rem !important;
     border-radius: 9999px !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1)) !important;
     font-size: 0.85rem !important;
     display: inline-block !important;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .modal-content {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .modal-content h3,
+[data-theme="dark"] .modal-content h4,
+[data-theme="dark"] .modal-content p,
+[data-theme="dark"] .modal-content span,
+[data-theme="dark"] .modal-content a {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] #modalTechStack span,
+[data-theme="dark"] #modalTechStack div {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 /* ==========================================

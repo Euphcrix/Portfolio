@@ -345,52 +345,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ------------------------------------------
-       MODAL COPY EMAIL TOAST HANDLER
-       ------------------------------------------ */
-    const modalCopyBtn = document.querySelector('.modal-copy-email-btn');
-    const modalToast = document.getElementById('modalToast');
+   /* ----------------------------------------------------
+   COPY EMAIL TOAST HANDLER (MODAL & CONTACT SECTION)
+   ---------------------------------------------------- */
+const modalCopyBtn = document.querySelector('.modal-copy-email-btn');
+const sectionCopyBtns = document.querySelectorAll('#contact .copy-email-btn, .contact-section .copy-email-btn');
+const toast = document.getElementById('toast');
 
-    if (modalCopyBtn && modalToast) {
-        modalCopyBtn.addEventListener('click', (e) => {
+// 1. Modal Copy Logic
+if (modalCopyBtn && toast) {
+    modalCopyBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const email = modalCopyBtn.getAttribute('data-email') || 'llanosdomnic1@gmail.com';
+
+        navigator.clipboard.writeText(email).then(() => {
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }).catch(err => {
+            console.error('Modal copy failed:', err);
+        });
+    });
+}
+
+// 2. Contact Section Copy Logic
+if (sectionCopyBtns.length && toast) {
+    sectionCopyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
-
-            const email = modalCopyBtn.getAttribute('data-email') || 'llanosdomnic1@gmail.com';
+            const email = btn.getAttribute('data-email') || btn.innerText.trim();
 
             navigator.clipboard.writeText(email).then(() => {
-                modalToast.classList.add('show');
-                
-                // Automatically hide popup after 2.5 seconds
+                toast.classList.add('show');
                 setTimeout(() => {
-                    modalToast.classList.remove('show');
+                    toast.classList.remove('show');
                 }, 2500);
             }).catch(err => {
-                console.error('Modal copy failed:', err);
+                console.error('Failed to copy: ', err);
             });
         });
-    }
-    // 2. Contact Section Copy Logic (Floating Toast at bottom contact section)
-    const sectionCopyBtns = document.querySelectorAll('#contact .copy-email-btn, .contact-section .copy-email-btn');
-    const toast = document.getElementById('toast');
-
-    if (sectionCopyBtns.length && toast) {
-        sectionCopyBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const email = btn.getAttribute('data-email') || btn.innerText.trim();
-
-                navigator.clipboard.writeText(email).then(() => {
-                    toast.classList.add('show');
-                    setTimeout(() => {
-                        toast.classList.remove('show');
-                    }, 2500);
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
-            });
-        });
-    }
+    });
+}
 
     /* ------------------------------------------
        SCROLL REVEAL ANIMATION OBSERVER
