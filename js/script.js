@@ -712,37 +712,3 @@ if (techContainer) {
         }
     });
 });
-
-// ==========================================
-// 2. CURSOR-TRACKING GRADIENT GLOW EFFECT
-// ==========================================
-const glowCards = document.querySelectorAll(".elite-project-card, .bento-card, .cert-card");
-
-glowCards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-    });
-
-
-
-    // ==========================================
-    // 2. CURSOR-TRACKING GRADIENT GLOW EFFECT
-    // ==========================================
-    const glowCards = document.querySelectorAll(".elite-project-card, .bento-card, .cert-card");
-
-    glowCards.forEach(card => {
-        card.addEventListener("mousemove", (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            card.style.setProperty("--mouse-x", `${x}px`);
-            card.style.setProperty("--mouse-y", `${y}px`);
-        });
-    });
-});
