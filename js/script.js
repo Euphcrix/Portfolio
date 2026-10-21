@@ -522,21 +522,6 @@ if (sectionCopyBtns.length && toast) {
         });
     }
 
-    /* ------------------------------------------
-       MOUSE SPOTLIGHT GLOW HANDLER
-       ------------------------------------------ */
-    const spotlightCards = document.querySelectorAll('.elite-project-card, .bento-card, .cert-card');
-
-    spotlightCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
 
     /* ------------------------------------------
        LIVE LOCAL TIME CLOCK HANDLER
@@ -572,38 +557,6 @@ if (sectionCopyBtns.length && toast) {
             document.title = originalTitle;
         }
     });
-
-    /* ------------------------------------------
-       CUSTOM MAGNETIC CURSOR LOGIC
-       ------------------------------------------ */
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-
-    if (cursorDot && cursorOutline) {
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        const interactiveElements = document.querySelectorAll('a, button, .project-card, .bento-card, input, textarea, .modal-action-card');
-
-        interactiveElements.forEach((el) => {
-            el.addEventListener('mouseenter', () => {
-                document.body.classList.add('cursor-hover');
-            });
-            el.addEventListener('mouseleave', () => {
-                document.body.classList.remove('cursor-hover');
-            });
-        });
-    }
 
     /* ------------------------------------------
        TOP SCROLL PROGRESS BAR LOGIC

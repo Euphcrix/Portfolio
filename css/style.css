@@ -2863,74 +2863,70 @@ body.cursor-hover .cursor-dot {
 }
 
 /* ==========================================
-   THEME-ADAPTIVE MODAL FIX
+   INVERTED THEME-ADAPTIVE MODAL FIX (TRUE BLACK)
    ========================================== */
+
+/* LIGHT MODE: True deep black modal background (#0a0a0c) with white text */
 .modal-content {
-    background-color: var(--card-bg, #ffffff) !important;
-    color: var(--text-color, #0f172a) !important;
-    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1)) !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    background-color: #0a0a0c !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6) !important;
 }
 
-.modal-content h3, 
-.modal-content h4, 
-.modal-content p, 
-.modal-content span {
-    color: var(--text-color, #0f172a) !important;
-}
-
-/* Fix action links/buttons inside modal */
+.modal-content h1,
+.modal-content h2,
+.modal-content h3,
+.modal-content h4,
+.modal-content p,
+.modal-content span,
 .modal-content a {
-    color: var(--text-color, #0f172a) !important;
-    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.2)) !important;
-    background-color: var(--bg-secondary, #f1f5f9) !important;
-    padding: 0.5rem 1rem !important;
-    border-radius: 8px !important;
-    display: inline-block !important;
-    text-decoration: none !important;
-}
-
-/* Tech Stack Badges */
-#modalTechStack {
-    background-color: transparent !important;
-    border: none !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 0.5rem !important;
-}
-
-#modalTechStack span,
-#modalTechStack div,
-#modalTechStack a {
-    background-color: var(--bg-secondary, #e2e8f0) !important;
-    color: var(--text-color, #0f172a) !important;
-    padding: 0.3rem 0.8rem !important;
-    border-radius: 9999px !important;
-    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1)) !important;
-    font-size: 0.85rem !important;
-    display: inline-block !important;
-}
-
-/* Dark Mode Overrides */
-[data-theme="dark"] .modal-content {
-    background-color: #0f172a !important;
     color: #ffffff !important;
 }
 
+.modal-content .text-muted {
+    color: #94a3b8 !important;
+}
+
+/* Light Mode Tech Stack Badges inside modal */
+#modalTechStack span,
+#modalTechStack div,
+#modalTechStack a {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+
+/* DARK MODE: Clean white modal background (#ffffff) with dark text (#0f172a) */
+[data-theme="dark"] .modal-content {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(15, 23, 42, 0.15) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="dark"] .modal-content h1,
+[data-theme="dark"] .modal-content h2,
 [data-theme="dark"] .modal-content h3,
 [data-theme="dark"] .modal-content h4,
 [data-theme="dark"] .modal-content p,
 [data-theme="dark"] .modal-content span,
 [data-theme="dark"] .modal-content a {
-    color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #0f172a !important;
 }
 
+[data-theme="dark"] .modal-content .text-muted {
+    color: #64748b !important;
+}
+
+/* Dark Mode Tech Stack Badges inside modal */
 [data-theme="dark"] #modalTechStack span,
-[data-theme="dark"] #modalTechStack div {
-    background-color: #1f2937 !important;
-    color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.15) !important;
+[data-theme="dark"] #modalTechStack div,
+[data-theme="dark"] #modalTechStack a {
+    background-color: rgba(15, 23, 42, 0.05) !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
 }
 
 /* ==========================================
