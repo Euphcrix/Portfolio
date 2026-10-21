@@ -346,13 +346,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ------------------------------------------
-       QUICK-COPY EMAIL TOAST NOTIFICATION
+       MODAL COPY EMAIL TOAST HANDLER
        ------------------------------------------ */
-    const copyEmailBtns = document.querySelectorAll('.copy-email-btn');
+    const modalCopyBtn = document.querySelector('.modal-copy-email-btn');
+    const modalToast = document.getElementById('modalToast');
+
+    if (modalCopyBtn && modalToast) {
+        modalCopyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const email = modalCopyBtn.getAttribute('data-email') || 'llanosdomnic1@gmail.com';
+
+            navigator.clipboard.writeText(email).then(() => {
+                modalToast.classList.add('show');
+                
+                // Automatically hide popup after 2.5 seconds
+                setTimeout(() => {
+                    modalToast.classList.remove('show');
+                }, 2500);
+            }).catch(err => {
+                console.error('Modal copy failed:', err);
+            });
+        });
+    }
+    // 2. Contact Section Copy Logic (Floating Toast at bottom contact section)
+    const sectionCopyBtns = document.querySelectorAll('#contact .copy-email-btn, .contact-section .copy-email-btn');
     const toast = document.getElementById('toast');
 
-    if (copyEmailBtns.length && toast) {
-        copyEmailBtns.forEach(btn => {
+    if (sectionCopyBtns.length && toast) {
+        sectionCopyBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const email = btn.getAttribute('data-email') || btn.innerText.trim();
@@ -551,4 +574,223 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /* ------------------------------------------
+       CUSTOM MAGNETIC CURSOR LOGIC
+       ------------------------------------------ */
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+
+    if (cursorDot && cursorOutline) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        const interactiveElements = document.querySelectorAll('a, button, .project-card, .bento-card, input, textarea, .modal-action-card');
+
+        interactiveElements.forEach((el) => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
+            });
+        });
+    }
+
+    /* ------------------------------------------
+       TOP SCROLL PROGRESS BAR LOGIC
+       ------------------------------------------ */
+    const scrollBar = document.getElementById('scrollBar');
+
+    if (scrollBar) {
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollBar.style.width = `${scrolled}%`;
+        });
+    }
+
+    /* ------------------------------------------
+       3D CARD TILT EFFECT LOGIC
+       ------------------------------------------ */
+    const tiltCards = document.querySelectorAll('.project-card, .bento-card');
+
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // Mouse X inside card
+            const y = e.clientY - rect.top;  // Mouse Y inside card
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Calculate rotation angles (max 8 degrees for a subtle, professional feel)
+            const rotateX = -((y - centerY) / centerY) * 8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Smoothly reset card position when mouse leaves
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+        });
+    });
+
+    // ==========================================
+// SCROLL REVEAL OBSERVER
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Automatically target cards and major sections
+    const elementsToReveal = document.querySelectorAll('.project-card, .bento-card, section');
     
+    elementsToReveal.forEach(el => {
+        el.classList.add('reveal-on-scroll');
+    });
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target); // Animate only once
+            }
+        });
+    }, observerOptions);
+
+    elementsToReveal.forEach(el => {
+        scrollObserver.observe(el);
+    });
+});
+
+// ==========================================
+// 0. PRELOADER HANDLER
+// ==========================================
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.remove();
+            }, 600);
+        }
+    }, 800);
+});
+
+// ==========================================
+// 1. PROJECT QUICK-VIEW MODAL FUNCTIONALITY (FINAL FULL CODE)
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("projectModal");
+    const closeBtn = document.getElementById("modalCloseBtn");
+    const projectCards = document.querySelectorAll(".project-card, .elite-project-card");
+
+    if (!modal) return;
+
+    projectCards.forEach(card => {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", (e) => {
+            if (e.target.closest("a")) return;
+
+            const title = card.querySelector(".project-title")?.innerText || "Project Detail";
+            const desc = card.querySelector(".project-description")?.innerText || "Detailed project summary.";
+            const category = card.querySelector(".project-category")?.innerText || "Development";
+            const liveLink = card.querySelector(".live-preview-badge")?.getAttribute("href") || "#";
+
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDescription").innerText = desc;
+            document.getElementById("modalCategory").innerText = category;
+
+            const liveBtn = document.getElementById("modalLiveBtn");
+            if (liveBtn) liveBtn.setAttribute("href", liveLink);
+
+            // Populate theme-adaptive tech stack tags horizontally
+          // Populate clean theme-adaptive tech stack tags horizontally
+const techContainer = document.getElementById("modalTechStack");
+if (techContainer) {
+    techContainer.innerHTML = "";
+    techContainer.style.cssText = "display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 0.5rem !important; align-items: center !important; justify-content: flex-start !important;";
+
+    const rawTags = card.getAttribute("data-tech") || "React, Tailwind CSS, JavaScript, Vercel";
+    const sampleTags = rawTags.split(",").map(t => t.trim());
+
+    sampleTags.forEach(tag => {
+        const span = document.createElement("span");
+        span.innerText = tag;
+        span.className = "tech-pill"; // Use CSS class for styling
+        techContainer.appendChild(span);
+    });
+}
+
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    const closeModal = () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    };
+
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+    // Close on background click
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Close on ESC key press
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+            closeModal();
+        }
+    });
+});
+
+// ==========================================
+// 2. CURSOR-TRACKING GRADIENT GLOW EFFECT
+// ==========================================
+const glowCards = document.querySelectorAll(".elite-project-card, .bento-card, .cert-card");
+
+glowCards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+    });
+
+
+
+    // ==========================================
+    // 2. CURSOR-TRACKING GRADIENT GLOW EFFECT
+    // ==========================================
+    const glowCards = document.querySelectorAll(".elite-project-card, .bento-card, .cert-card");
+
+    glowCards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        });
+    });
+});

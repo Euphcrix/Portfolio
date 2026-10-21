@@ -1978,35 +1978,35 @@ body:not([data-theme="dark"]) .contact-container {
 }
 
 /* ==========================================
-   TOAST NOTIFICATION STYLES
+   FLOATING TOAST NOTIFICATION STYLING
    ========================================== */
-.toast-notification {
+#toast, .toast-notification, .modal-toast-popup {
     position: fixed;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    background-color: var(--text-color);
-    color: var(--bg-primary);
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #ffffff;
     padding: 12px 24px;
     border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 0.9rem;
-    font-weight: 600;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(129, 140, 248, 0.2);
+    z-index: 99999;
     opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     pointer-events: none;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-    z-index: 9999;
 }
 
-[data-theme="dark"] .toast-notification {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-.toast-notification.show {
-    opacity: 1;
+#toast.show, .toast-notification.show, .modal-toast-popup.show {
     transform: translateX(-50%) translateY(0);
+    opacity: 1;
 }
+
 
 
 
@@ -2147,6 +2147,25 @@ body:not([data-theme="dark"]) .contact-container {
     .nav-menu {
         padding: 8px 12px !important;
     }
+
+    /* ==========================================
+       MOBILE MODAL TOUCH & SCROLL FIX
+       ========================================== */
+    #projectModal {
+        padding: 1rem !important;
+        align-items: center !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .modal-content {
+        width: 92% !important;
+        max-height: 82vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-sizing: border-box !important;
+        margin: auto !important;
+    }
 }
 
 /* ==========================================
@@ -2183,22 +2202,43 @@ button:focus-visible,
 }
 
 /* ==========================================
-   CENTER SEARCH BAR ALIGNMENT
+   PROJECT SEARCH BAR ALIGNMENT & SIZING
    ========================================== */
 .projects-controls-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .project-search-wrapper {
     position: relative;
     width: 100%;
-    max-width: 360px; /* Perfect centered width */
-    margin: 0 auto;
+    max-width: 480px;
+    margin: 0 auto 15px auto;
+}
+
+.project-search-input,
+.projects-search-bar input,
+#projectSearch {
+    width: 100% !important;
+    max-width: 480px !important;
+    padding: 12px 20px !important;
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 9999px !important;
+    color: var(--text-color) !important;
+    font-size: 0.95rem !important;
+    outline: none !important;
+    display: block !important;
+    margin: 0 auto !important;
+    transition: all 0.3s ease !important;
+}
+
+.project-search-input:focus,
+.projects-search-bar input:focus,
+#projectSearch:focus {
+    border-color: var(--border-hover) !important;
+    box-shadow: 0 0 15px rgba(129, 140, 248, 0.2) !important;
 }
 
 /* ==========================================
@@ -2536,3 +2576,280 @@ button:focus-visible,
     }
 }
 
+/* ==========================================
+   MODAL POPUP TOAST NOTIFICATION STYLES
+   ========================================== */
+.modal-content {
+    position: relative; /* Ensures toast aligns properly inside modal */
+}
+
+.modal-toast-popup {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: #b91010;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(185, 16, 16, 0.35);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.modal-toast-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================
+   CUSTOM MAGNETIC CURSOR & SHADOWS
+   ========================================== */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #0f172a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transition: transform 0.1s ease, opacity 0.2s ease, background-color 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(15, 23, 42, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease-out, width 0.2s ease, height 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+body.cursor-hover .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(15, 23, 42, 0.06);
+    border-color: rgba(15, 23, 42, 0.9);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+body.cursor-hover .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.5;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .cursor-dot {
+    background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .cursor-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-theme="dark"] body.cursor-hover .cursor-outline {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6) !important;
+}
+
+
+
+/* ==========================================
+   SMOOTH PROJECT FILTER TRANSITIONS
+   ========================================== */
+.project-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Hide state with smooth scale down */
+.project-card.hide {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* ==========================================
+   PROFESSIONAL SCROLL REVEAL & LIVE BADGE
+   ========================================== */
+
+/* Fade-up scroll animation for sections & cards */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Live Status Pulse Dot */
+.live-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+/* ==========================================
+   ELITE TECH STUDIO PRELOADER
+   ========================================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+}
+
+#preloader.fade-out {
+    transform: translateY(-100%);
+    opacity: 0.95;
+}
+
+.preloader-inner {
+    text-align: center;
+    position: relative;
+}
+
+.preloader-logo-wrapper {
+    overflow: hidden;
+    margin-bottom: 12px;
+    padding: 0 10px;
+}
+
+.preloader-brand {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 30%, #818cf8 70%, #c084fc 100%);
+    background-clip: text; /* standard */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+    display: inline-block;
+    transform: translateY(100%);
+    animation: slide-up-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+}
+
+.preloader-brand span {
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    background-clip: text; /* standard */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.preloader-subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: rgba(148, 163, 184, 0.6);
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards 0.6s;
+}
+
+@keyframes slide-up-fade {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   UNIFIED DARK SLATE MODAL FOR BOTH MODES
+   ========================================== */
+
+.modal-content {
+    background-color: #111827 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.modal-content h3, 
+.modal-content h4, 
+.modal-content p, 
+.modal-content span:not(#modalTechStack span), 
+.modal-content div:not(#modalTechStack) {
+    color: #ffffff !important;
+}
+
+#modalTechStack {
+    background-color: transparent !important;
+    border: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+}
+
+#modalTechStack span,
+#modalTechStack div,
+#modalTechStack a {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+    padding: 0.3rem 0.8rem !important;
+    border-radius: 9999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-size: 0.85rem !important;
+    display: inline-block !important;
+}
