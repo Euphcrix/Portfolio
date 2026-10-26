@@ -214,95 +214,120 @@
                 </div>
             </section>
 
-<!-- 3. PROJECTS SECTION WITH SEARCH & FILTER -->
-<section id="projects" class="portfolio-section">
+<!-- 3. 3D COVERFLOW PROJECTS SECTION -->
+<section id="projects" class="portfolio-section coverflow-section">
     <div class="section-header">
         <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Explore my recent development work, e-commerce systems, and design projects.</p>
+        <p class="section-subtitle">Navigate through my development work, web arcade apps, and operations systems.</p>
     </div>
 
-    <!-- Projects Search & Filter Container -->
-<div class="projects-controls-container">
-    <!-- Search Bar -->
-    <div class="project-search-wrapper">
-       <input type="text" id="projectSearchInput" placeholder="Search projects..." class="project-search-input project-search-bar input">
-    </div>
+<!-- 3D Coverflow Carousel Wrapper -->
+    <div class="coverflow-wrapper">
+        
+        <!-- LEFT ARROW -->
+        <button id="coverflowPrev" class="coverflow-arrow coverflow-prev" aria-label="Previous Project">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
 
-    <!-- Filter Buttons Bar -->
-    <div class="project-filter-bar" style="margin-bottom: 0;">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="dev">Web Apps</button>
-        <button class="filter-btn" data-filter="va">VA & E-Commerce</button>
-        <button class="filter-btn" data-filter="design">UI/UX Design</button>
-    </div>
-</div>
+        <!-- COVERFLOW TRACK -->
+        <div class="coverflow-track" id="coverflowTrack">
 
-    <!-- Projects Grid Container -->
-    <div class="projects-grid" style="margin-top: 2.5rem;">
 
-        <!-- Project Card 1 -->
-        <div class="project-card elite-project-card" data-category="dev">
-            <div class="project-preview-container">
-                <img src="assets/images/cat.jpg" alt="Project Preview" class="project-preview-img">
-                <a href="https://your-live-app.vercel.app" target="_blank" class="live-preview-badge">
-                    <span>Live Demo ↗</span>
-                </a>
+            
+            <!-- PROJECT 1: JAVA QUEST (Flagship) -->
+            <div class="coverflow-card active" 
+                 data-index="0"
+                 data-category="Web Arcade / Full-Stack"
+                 data-title="Java Quest (Code Master Challenge)"
+                 data-desc="A retro arcade-style web quiz application built to test Java and OOP fundamentals through dynamic timers, instant audio feedback, and database-driven leaderboard tracking."
+                 data-problem="Traditional programming quizzes are often static and dry, lacking engaging feedback mechanisms, persistent score tracking, or smooth responsiveness for students practicing on mobile devices."
+                 data-solution="A high-performance web arcade application featuring real-time countdown timers, instantaneous web audio feedback, mobile touch optimizations, and a robust PHP/MySQL backend for persistent score tracking."
+                 data-features="• Dynamic Timer & Score Engine: Real-time countdown rounds with live score tracking.<br>• Instant Audio Feedback: Web Audio API sound effects optimized for desktop and mobile play.<br>• Responsive Retro UI: Minimalist matrix aesthetic with touch-action optimizations.<br>• Leaderboard Persistence: MySQL database integration capturing top scores."
+                 data-tech="PHP,MySQL,JavaScript,HTML5,CSS3,InfinityFree"
+                 data-live="http://domnic-quiz.free.nf/"
+                 data-repo="https://github.com/Euphcrix">
+                
+                    <div class="coverflow-media">
+                    <img src="assets/images/java.jpg" alt="Java Quest Preview" class="coverflow-img">
+                    <div class="gif-preview-overlay">
+                    <video autoplay muted loop playsinline class="system-gif-preview">
+                    <source src="videos/java-quest-preview.mp4" type="video/mp4">
+                    </video>
+                        <div class="preview-timer-bar"></div>
+                    </div>
+                </div>
+                <div class="coverflow-info">
+                    <span class="coverflow-tag">Web Arcade</span>
+                    <h3>Java Quest</h3>
+                    <p>Interactive Java Quiz & Leaderboard</p>
+                    <button class="coverflow-details-btn">View Details &rarr;</button>
+                </div>
             </div>
 
-            <div class="project-content">
-                <span class="project-category">Web Developer</span>
-                <h3 class="project-title">Your Web App Title</h3>
-                <p class="project-description">Description of your web application built with React/Node/PHP.</p>
+            <!-- PROJECT 2: E-COMMERCE SUPPORT -->
+            <div class="coverflow-card" 
+                 data-index="1"
+                 data-category="Operations & Management"
+                 data-title="Facebook Business Page Management"
+                 data-desc="Streamlining order processing, customer engagement, and supply chain tracking across active digital storefronts."
+                 data-problem="Managing multiple e-commerce pages manually leads to fragmented customer communication, delayed order fulfillment, and scattered inventory logs."
+                 data-solution="Centralized oversight across 4 Facebook business pages, streamlined 'Minoxipro' customer order processing, and rigorous supply chain tracking for Amazon sneaker delivery pipelines."
+                 data-features="• Multi-Page Oversight: Active management of 4 business pages.<br>• Order Fulfillment: Processing customer inquiries and transactions.<br>• Supply Chain Tracking: Monitoring Amazon logistics pipelines."
+                 data-tech="Figma,Photoshop,Google Workspace,Order Tracking"
+                 data-live="#"
+                 data-repo="#">
+                
+                <div class="coverflow-media">
+                    <img src="assets/images/catloading.jpg" alt="E-Commerce Preview" class="coverflow-img">
+                    <div class="gif-preview-overlay">
+                        <div class="preview-timer-bar"></div>
+                    </div>
+                </div>
+                <div class="coverflow-info">
+                    <span class="coverflow-tag">Operations</span>
+                    <h3>E-Commerce Support</h3>
+                    <p>Page Management & Fulfillment</p>
+                    <button class="coverflow-details-btn">View Details &rarr;</button>
+                </div>
             </div>
+
+            <!-- PROJECT 3: UI/UX DESIGN -->
+            <div class="coverflow-card" 
+                 data-index="2"
+                 data-category="UI/UX Design"
+                 data-title="Portfolio & Dashboard UI/UX"
+                 data-desc="Crafting clean, responsive, dark-mode-first user interfaces and design systems prioritized for modern developer portfolios."
+                 data-problem="Generic templates lack personality and fail to highlight technical depth or offer responsive design parity across mobile devices."
+                 data-solution="Designed minimalist, high-contrast dark and light mode UI architectures with glassmorphism cards, smooth animations, and optimized touch layouts."
+                 data-features="• Dark/Light Theme Engine: Seamless CSS custom property toggling.<br>• Responsive Layouts: Fluid bento grids and custom scrollbars.<br>• Interactive Elements: Custom cursors and live status indicators."
+                 data-tech="Figma,Photoshop,HTML5,CSS3,JavaScript"
+                 data-live="https://domnicportfolio.vercel.app/"
+                 data-repo="https://github.com/Euphcrix">
+                
+                <div class="coverflow-media">
+                    <img src="assets/images/catloading.jpg" alt="UI/UX Preview" class="coverflow-img">
+                    <div class="gif-preview-overlay">
+                        <div class="preview-timer-bar"></div>
+                    </div>
+                </div>
+                <div class="coverflow-info">
+                    <span class="coverflow-tag">UI/UX Design</span>
+                    <h3>Java Quiz Gamem</h3>
+                    <p>Modern Dark/Light Architecture</p>
+                    <button class="coverflow-details-btn">View Details &rarr;</button>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Project Card 2 -->
-        <div class="project-card elite-project-card" data-category="va">
-            <div class="project-preview-container">
-                <img src="assets/images/catloading.jpg" alt="Project Preview" class="project-preview-img">
-                <a href="#" target="_blank" class="live-preview-badge">
-                    <span>Live Demo ↗</span>
-                </a>
-            </div>
+<!-- RIGHT ARROW -->
+        <button id="coverflowNext" class="coverflow-arrow coverflow-next" aria-label="Next Project">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
 
-            <div class="project-content">
-                <span class="project-category">E-Commerce Support</span>
-                <h3 class="project-title">Facebook Business Page Management</h3>
-                <p class="project-description">Streamlining order processing, supply chain tracking, and customer engagement.</p>
-            </div>
-        </div>
-
-    </div> <!-- End of projects-grid -->
-    
+    </div> <!-- Closes .coverflow-wrapper -->
 </section>
 
-<!-- Contact Section or Footer -->
-    <!-- ... -->
-
-<!-- Project Quick-View Modal -->
-<div id="projectModal" class="modal-overlay">
-    <div class="modal-content" style="max-width: 600px; position: relative; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);">
-        
-        <span id="modalCategory" class="bento-tag" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-color, #450101);">Full-Stack Dev</span>
-        <h3 id="modalTitle" style="font-size: 1.8rem; margin: 0.5rem 0 1rem 0; color: var(--text-color);">Project Title</h3>
-        
-        <p id="modalDescription" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">Detailed project overview.</p>
-        
-        <!-- Tech Stack Tags Container -->
-        <div style="margin-bottom: 1.5rem;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-color);">Tech Stack</h4>
-            <div id="modalTechStack" class="hero-skills-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <!-- Dynamically filled tags -->
-            </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="hero-cta-group" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-            <a id="modalLiveBtn" href="#" target="_blank" class="btn-primary-custom" style="padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">View Live Demo &rarr;</a>
-            <a id="modalRepoBtn" href="#" target="_blank" class="btn-secondary-custom" style="padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid currentColor; color: var(--text-color);">GitHub Repository</a>
-        </div>
-    </div>
-</div>
 
 
 <!-- 3. EXPERIENCE SECTION -->

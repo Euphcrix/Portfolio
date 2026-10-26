@@ -643,72 +643,217 @@ window.addEventListener('load', () => {
     }, 800);
 });
 
-// ==========================================
-// 1. PROJECT QUICK-VIEW MODAL FUNCTIONALITY (FINAL FULL CODE)
-// ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("projectModal");
-    const closeBtn = document.getElementById("modalCloseBtn");
-    const projectCards = document.querySelectorAll(".project-card, .elite-project-card");
+/* ==========================================================================
+   3D COVERFLOW CAROUSEL & DETAIL MODAL CONTROLLER
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.coverflow-card');
+    const prevBtn = document.getElementById('coverflowPrev');
+    const nextBtn = document.getElementById('coverflowNext');
+    const projectModal = document.getElementById('projectModal');
+    
+    if (!cards.length) return;
 
-    if (!modal) return;
+    let currentIndex = 0;
+    const totalCards = cards.length;
 
-    projectCards.forEach(card => {
-        card.style.cursor = "pointer";
-        card.addEventListener("click", (e) => {
-            if (e.target.closest("a")) return;
+    function updateCarousel() {
+        cards.forEach((card, i) => {
+            card.classList.remove('active', 'prev-card', 'next-card', 'hidden-card');
 
-            const title = card.querySelector(".project-title")?.innerText || "Project Detail";
-            const desc = card.querySelector(".project-description")?.innerText || "Detailed project summary.";
-            const category = card.querySelector(".project-category")?.innerText || "Development";
-            const liveLink = card.querySelector(".live-preview-badge")?.getAttribute("href") || "#";
-
-            document.getElementById("modalTitle").innerText = title;
-            document.getElementById("modalDescription").innerText = desc;
-            document.getElementById("modalCategory").innerText = category;
-
-            const liveBtn = document.getElementById("modalLiveBtn");
-            if (liveBtn) liveBtn.setAttribute("href", liveLink);
-
-            // Populate theme-adaptive tech stack tags horizontally
-          // Populate clean theme-adaptive tech stack tags horizontally
-const techContainer = document.getElementById("modalTechStack");
-if (techContainer) {
-    techContainer.innerHTML = "";
-    techContainer.style.cssText = "display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 0.5rem !important; align-items: center !important; justify-content: flex-start !important;";
-
-    const rawTags = card.getAttribute("data-tech") || "React, Tailwind CSS, JavaScript, Vercel";
-    const sampleTags = rawTags.split(",").map(t => t.trim());
-
-    sampleTags.forEach(tag => {
-        const span = document.createElement("span");
-        span.innerText = tag;
-        span.className = "tech-pill"; // Use CSS class for styling
-        techContainer.appendChild(span);
-    });
-}
-
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
+            if (i === currentIndex) {
+                card.classList.add('active');
+            } else if (i === (currentIndex - 1 + totalCards) % totalCards) {
+                card.classList.add('prev-card');
+            } else if (i === (currentIndex + 1) % totalCards) {
+                card.classList.add('next-card');
+            } else {
+                card.classList.add('hidden-card');
+            }
         });
-    });
+    }
 
-    const closeModal = () => {
-        modal.classList.remove("active");
-        document.body.style.overflow = "";
-    };
+    // Navigation Arrow Handlers (Continuous Infinite Loop)
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCarousel();
+        });
+    }
 
-    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateCarousel();
+        });
+    }
 
-    // Close on background click
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-    });
+    // Click handlers for cards and detail buttons
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            if (card.classList.contains('active')) {
+                openProjectModal(card);
+            } else {
+                currentIndex = index;
+                updateCarousel();
+            }
+        });
 
-    // Close on ESC key press
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("active")) {
-            closeModal();
+        const detailsBtn = card.querySelector('.coverflow-details-btn');
+        if (detailsBtn) {
+            detailsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = index;
+                updateCarousel();
+                openProjectModal(card);
+            });
         }
     });
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCarousel();
+        } else if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateCarousel();
+        }
+    });
+
+    // Modal Population Function
+    function openProjectModal(card) {
+        if (!projectModal) return;
+
+        const cat = card.getAttribute('data-category');
+        const title = card.getAttribute('data-title');
+        const desc = card.getAttribute('data-desc');
+        const problem = card.getAttribute('data-problem');
+        const solution = card.getAttribute('data-solution');
+        const features = card.getAttribute('data-features');
+        const tech = card.getAttribute('data-tech').split(',');
+        const live = card.getAttribute('data-live');
+        const repo = card.getAttribute('data-repo');
+
+        document.getElementById('modalCategory').textContent = cat;
+        document.getElementById('modalTitle').textContent = title;
+        
+        let modalDescContainer = document.getElementById('modalDescription');
+        modalDescContainer.innerHTML = `
+            <p style="margin-bottom: 1rem;">${desc}</p>
+            <div style="background: var(--bg-color, rgba(0,0,0,0.2)); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid var(--primary-color, #fff);">
+                <strong style="color: var(--text-color);">PROBLEM:</strong>
+                <p style="margin-top: 0.3rem; font-size: 0.9rem; color: var(--text-muted);">${problem}</p>
+            </div>
+            <div style="background: var(--bg-color, rgba(0,0,0,0.2)); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid #10b981;">
+                <strong style="color: var(--text-color);">SOLUTION:</strong>
+                <p style="margin-top: 0.3rem; font-size: 0.9rem; color: var(--text-muted);">${solution}</p>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <strong style="color: var(--text-color);">KEY FEATURES:</strong>
+                <p style="margin-top: 0.3rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">${features}</p>
+            </div>
+        `;
+
+        const techContainer = document.getElementById('modalTechStack');
+        techContainer.innerHTML = '';
+        tech.forEach(t => {
+            const span = document.createElement('span');
+            span.className = 'skill-tag';
+            span.textContent = t.trim();
+            techContainer.appendChild(span);
+        });
+
+        const liveBtn = document.getElementById('modalLiveBtn');
+        const repoBtn = document.getElementById('modalRepoBtn');
+        
+        if (live && live !== '#') {
+            liveBtn.href = live;
+            liveBtn.style.display = 'inline-flex';
+        } else {
+            liveBtn.style.display = 'none';
+        }
+
+        if (repo && repo !== '#') {
+            repoBtn.href = repo;
+            repoBtn.style.display = 'inline-flex';
+        } else {
+            repoBtn.style.display = 'none';
+        }
+
+        projectModal.classList.add('active');
+    }
+
+    // Close Modal on Outside Click or Escape
+    if (projectModal) {
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                projectModal.classList.remove('active');
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projectModal) {
+            projectModal.classList.remove('active');
+        }
+    });
+
+    updateCarousel();
 });
+
+/* ------------------------------------------
+       LIGHTWEIGHT NAVBAR SCROLL CONTROLLER
+       ------------------------------------------ */
+    const siteHeader = document.querySelector('header') || document.querySelector('.navbar') || document.querySelector('nav.main-nav');
+    
+    if (siteHeader) {
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY <= 40) {
+                siteHeader.classList.remove('nav-hidden-top', 'nav-visible-bottom');
+            } else if (currentScrollY > 40 && currentScrollY < 250) {
+                siteHeader.classList.add('nav-hidden-top');
+                siteHeader.classList.remove('nav-visible-bottom');
+            } else {
+                siteHeader.classList.remove('nav-hidden-top');
+                siteHeader.classList.add('nav-visible-bottom');
+            }
+        }, { passive: true });
+    }
+
+    /* ------------------------------------------
+       CUSTOM AUTO-FADING SCROLL THUMB
+       ------------------------------------------ */
+    if (!document.getElementById('custom-scroll-thumb')) {
+        const scrollThumb = document.createElement('div');
+        scrollThumb.id = 'custom-scroll-thumb';
+        document.body.appendChild(scrollThumb);
+    }
+
+    const thumb = document.getElementById('custom-scroll-thumb');
+    let scrollTimer = null;
+
+    window.addEventListener('scroll', () => {
+        if (!thumb) return;
+
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+      const thumbHeight = 70; // Change 70 to make it smaller or bigger!
+        const maxTop = window.innerHeight - thumbHeight - 20;
+        const currentTop = 10 + (scrollPercent * maxTop);
+
+        thumb.style.height = `${thumbHeight}px`;
+        thumb.style.transform = `translateY(${currentTop}px)`;
+        thumb.style.opacity = '1';
+
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            thumb.style.opacity = '0';
+        }, 600); // Fades out smoothly 600ms after you stop scrolling
+    }, { passive: true });
