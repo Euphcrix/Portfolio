@@ -3534,3 +3534,30 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 [data-theme="dark"] #custom-scroll-thumb {
     background: rgba(255, 255, 255, 0.4);
 }
+
+/* ==========================================================================
+   KILL MOBILE SCROLLER TRACK & BIG EDGE (Android / Mobile Viewport)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    /* Force full width and prevent any side bleeding */
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Completely vanish the browser scrollbar track and width on mobile */
+    ::-webkit-scrollbar {
+        width: 0px !important;
+        height: 0px !important;
+        display: none !important;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: transparent !important;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: transparent !important;
+    }
+}
