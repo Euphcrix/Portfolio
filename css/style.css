@@ -3561,3 +3561,20 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
         background: transparent !important;
     }
 }
+
+/* ==========================================================================
+   BUTTERY-SMOOTH MOMENTUM SCROLLING (Web & Mobile)
+   ========================================================================== */
+html {
+    scroll-behavior: smooth !important;
+    overflow-y: auto !important;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    /* Enables smooth momentum/inertia scrolling on mobile & touch devices */
+    -webkit-overflow-scrolling: touch !important; 
+    scroll-behavior: smooth !important;
+}
