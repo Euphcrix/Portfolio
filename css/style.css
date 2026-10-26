@@ -3509,12 +3509,18 @@ body {
    ========================================================================== */
 
    /* Hide default scrollbars across all browsers */
-html, body {
-    scrollbar-width: none !important; /* Firefox */
-    -ms-overflow-style: none !important; /* IE/Edge */
-}
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-    display: none !important; /* Chrome/Safari */
+@media screen and (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        scrollbar-width: none !important; /* Firefox mobile */
+        -ms-overflow-style: none !important; /* IE/Edge mobile */
+    }
+    
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+        display: none !important; /* Chrome/Safari mobile */
+        width: 0px !important;
+        background: transparent !important;
+    }
 }
 
 /* Custom smooth scroll progress pill on the right edge */
