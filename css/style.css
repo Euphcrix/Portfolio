@@ -3578,3 +3578,41 @@ body {
     -webkit-overflow-scrolling: touch !important; 
     scroll-behavior: smooth !important;
 }
+
+/* 1. Global Smooth Scroll & Hardware Acceleration */
+html {
+  /* Enable native smooth scrolling for anchor navigation (#home, #about, etc.) */
+  scroll-behavior: smooth;
+  
+  /* Optimize font rendering for crisp text during movement */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Responsive Body Container (App-like Smoothness) */
+body {
+  /* Prevents horizontal layout shifts/glitches on mobile */
+  overflow-x: hidden;
+  
+  /* Enables fast touch momentum scrolling on WebKit browsers (iOS/Safari) */
+  -webkit-overflow-scrolling: touch;
+  
+  /* Ensures smooth page scrolling without browser layout stutter */
+  text-rendering: optimizeLegibility;
+}
+
+/* 3. Smooth Fixed Header Transitions (Prevent Jitter) */
+header {
+  /* Hardware acceleration for fixed/sticky position elements */
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* 4. Accessibility: Disable smooth scroll for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
